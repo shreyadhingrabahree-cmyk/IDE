@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Shoreline — Discover Your Perfect Beach Escape</title>
+  <meta name="description" content="Explore world-famous beaches with curated details on optimal seasons, live weather conditions, unique sand colors, signature excursions, and real-time reviews. Use our Beach Mood Matcher to plan your dream shoreline getaway.">
+  <meta name="keywords" content="beach travel, tropical vacations, whitehaven beach, grace bay, seychelles beaches, pink sands beach, surf spots, snorkeling, travel guide">
+  <meta name="author" content="Shoreline Travel Curators">
+  
+  <!-- Open Graph Meta Tags (for social sharing) -->
+  <meta property="og:title" content="Shoreline — Discover Your Perfect Beach Escape">
+  <meta property="og:description" content="Find the world's most pristine beach destinations. Filter by activities, sand variety, weather, and ratings, or take our interactive Beach Matcher quiz!">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets & Typography -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Font Awesome Icons (Loaded asynchronously) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- --- HEADER / NAVIGATION --- -->
+  <header id="header">
+    <div class="container">
+      <a href="#" class="logo" id="brand-logo" aria-label="Shoreline Home">
+        <div class="logo-wave"><i class="fa-solid fa-water"></i></div>
+        <span>Shoreline</span>
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#destinations" id="nav-destinations">Destinations</a></li>
+          <li><a href="#" onclick="event.preventDefault(); openQuiz();" id="nav-matcher">Mood Matcher</a></li>
+          <li><a href="#" onclick="event.preventDefault(); toggleFavoritesSidebar();" id="nav-checklist">Shortlist Compare</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="favorites-btn" id="favorites-btn" aria-label="Open Saved Favorites Sidebar">
+          <i class="fa-solid fa-heart"></i>
+          <span>My Shortlist</span>
+          <span class="favorites-count" id="favorites-count" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- MAIN CANVAS --- -->
+  <main>
+    
+    <!-- --- HERO / CANVAS HEADER --- -->
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <span class="hero-subtitle">Curated Paradise Directory</span>
+        <h1 class="hero-title">Find your perfect patch of <span>paradise</span></h1>
+        <p class="hero-desc">Discover world-class shorelines tailored to your preferred climate, activities, unique sand colors, and traveling companions.</p>
+        
+        <!-- Search & Quick Matcher Console -->
+        <div class="search-filter-wrapper glassmorphism" id="filter-wrapper">
+          <div class="search-bar-inner">
+            <div class="search-input-group">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="search-bar" placeholder="Search by name, location, sand style, or keyword..." aria-label="Search Beaches">
+            </div>
+            
+            <button class="quiz-trigger-btn" id="quiz-trigger-btn">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Beach Mood Matcher
+            </button>
+          </div>
+          
+          <!-- Advanced Multi-Criteria Filter Pill Rows -->
+          <div class="filter-categories">
+            
+            <div class="filter-row">
+              <span class="filter-label">Vibe Vibe</span>
+              <div class="filter-options" id="vibe-filters">
+                <!-- Injected Dynamically by JS -->
+              </div>
+            </div>
+            
+            <div class="filter-row">
+              <span class="filter-label">Sand Style</span>
+              <div class="filter-options" id="sand-filters">
+                <!-- Injected Dynamically by JS -->
+              </div>
+            </div>
+            
+            <div class="filter-row">
+              <span class="filter-label">Excursions</span>
+              <div class="filter-options" id="activity-filters">
+                <!-- Injected Dynamically by JS -->
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- DYNAMIC DESTINATIONS GRID --- -->
+    <section class="beach-section" id="destinations">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">World-Class Shores</h2>
+            <p class="section-desc">Handpicked beaches from tropical lagoons to adventure-packed surfing waves.</p>
+          </div>
+          <div class="results-counter" id="results-counter" aria-live="polite">6 Beaches found</div>
+        </div>
+        
+        <div class="beaches-grid" id="beaches-grid">
+          <!-- Dynamically Injected Beach Cards -->
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- --- SLIDE-OUT DETAIL DRAWER (DESTINATION SHEET) --- -->
+  <div class="detail-drawer-overlay" id="detail-drawer-overlay"></div>
+  <aside class="detail-drawer" id="detail-drawer" aria-label="Beach Details Sheet" aria-hidden="true">
+    <div class="drawer-body" id="drawer-body">
+      <!-- Dynamically Rendered Detailed Specs, custom animated charts & checklist planners -->
+    </div>
+  </aside>
+
+  <!-- --- SAVED FAVORITES SHORTLIST PANEL --- -->
+  <div class="fav-sidebar-overlay" id="fav-sidebar-overlay"></div>
+  <aside class="fav-sidebar" id="fav-sidebar" aria-label="Favorites Shortlist Panel" aria-hidden="true">
+    <div class="fav-sidebar-header">
+      <h3 class="fav-sidebar-title">My Travel Shortlist</h3>
+      <button class="fav-sidebar-close" id="fav-sidebar-close" aria-label="Close Shortlist Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="fav-sidebar-body" id="fav-sidebar-body">
+      <!-- Favorited cards with removal triggers loaded here -->
+    </div>
+    
+    <div class="fav-sidebar-footer">
+      <button class="fav-compare-btn" id="fav-compare-btn" style="display: none;">
+        <i class="fa-solid fa-code-compare"></i>
+        Compare Shortlist
+      </button>
+    </div>
+  </aside>
+
+  <!-- --- SIDE-BY-SIDE COMPARATIVE TABULAR MODAL --- -->
+  <div class="compare-modal-overlay" id="compare-modal-overlay">
+    <div class="compare-modal" role="dialog" aria-modal="true" aria-labelledby="compare-modal-title">
+      <div class="compare-modal-header">
+        <h3 id="compare-modal-title">Shoreline Side-by-Side Comparison</h3>
+        <button class="compare-modal-close" id="compare-modal-close" aria-label="Close Comparison Modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="compare-table-wrapper">
+        <table class="compare-table">
+          <thead id="compare-table-head">
+            <!-- Headers filled dynamically -->
+          </thead>
+          <tbody id="compare-table-body">
+            <!-- Specs filled dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- --- BEACH MOOD MATCHER INTERACTIVE QUIZ MODAL --- -->
+  <div class="mood-quiz-overlay" id="quiz-overlay">
+    <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="quiz-modal-title">
+      <div class="quiz-header">
+        <h3 id="quiz-modal-title">Beach Mood Matcher</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Let us compute your ideal shoreline slice of heaven.</p>
+        <button class="quiz-close-btn" id="quiz-close-btn" aria-label="Close Quiz"><i class="fa-solid fa-xmark"></i></button>
+        
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-inner" id="quiz-progress-inner"></div>
+        </div>
+      </div>
+      
+      <div class="quiz-body" id="quiz-body">
+        <!-- Injected step-by-step quiz pages -->
+      </div>
+    </div>
+  </div>
+
+  <!-- --- FOOTER --- -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div>
+          <a href="#" class="logo footer-logo">
+            <div class="logo-wave"><i class="fa-solid fa-water"></i></div>
+            <span>Shoreline</span>
+          </a>
+          <p class="footer-desc">Curating world-class beach experiences, connecting wanderers to their ultimate shoreline microclimates, sands, and aquatic excursions.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" class="footer-social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('grace-bay')">Grace Bay</a></li>
+            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('anse-source')">Anse Source d'Argent</a></li>
+            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('whitehaven-beach')">Whitehaven Beach</a></li>
+            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('navagio-beach')">Navagio Beach</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-col-title">Travel Guides</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="event.preventDefault(); resetAllFilters(); document.getElementById('destinations').scrollIntoView();">Beach Selector</a></li>
+            <li><a href="#" onclick="event.preventDefault(); openQuiz();">Mood Quiz</a></li>
+            <li><a href="#" onclick="event.preventDefault(); toggleFavoritesSidebar();">Shortlist Comparer</a></li>
+            <li><a href="#">Packing Tips</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-col-title">Coastal Dispatch</h4>
+          <p class="footer-newsletter-text">Subscribe to receive monthly curation of exotic, untouched dunes and local island weather warnings.</p>
+          <form class="footer-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Your coastal dispatch is on its way.'); this.reset();">
+            <input type="email" placeholder="Wanderer's email..." required aria-label="Newsletter Email">
+            <button type="submit" class="footer-submit-btn" id="footer-subscribe-btn">Join</button>
+          </form>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shoreline Curation Co. All rights reserved. Crafted for sand-and-sun worshippers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- SCRIPT ATTACHMENTS --- -->
+  <script src="app.js"></script>
+</body>
+</html>

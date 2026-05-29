@@ -1,0 +1,14 @@
+# IDE Files & Logs
+argv.json
+extensions/
+.gemini/
+.antigravity-ide/
+.vscode/
+.idea/
+
+# OS Files
+Thumbs.db
+EHthumbs.db
+Desktop.ini
+ds_store
+.DS_Store
