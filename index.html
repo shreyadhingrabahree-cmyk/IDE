@@ -5,46 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags -->
-  <title>Shoreline — Discover Your Perfect Beach Escape</title>
-  <meta name="description" content="Explore world-famous beaches with curated details on optimal seasons, live weather conditions, unique sand colors, signature excursions, and real-time reviews. Use our Beach Mood Matcher to plan your dream shoreline getaway.">
-  <meta name="keywords" content="beach travel, tropical vacations, whitehaven beach, grace bay, seychelles beaches, pink sands beach, surf spots, snorkeling, travel guide">
-  <meta name="author" content="Shoreline Travel Curators">
+  <title>Shreya Bahree — Creative Ocean Portfolio & Keepsakes</title>
+  <meta name="description" content="Welcome to Shreya Bahree's creative portfolio! A Grade 7C student at Vasant Valley School. Explorer of science, maths, volleyball, reading, singing, arts & crafts, and designer of emotions.">
+  <meta name="keywords" content="Shreya Bahree, Vasant Valley School, Grade 7C, Shreya Portfolio, Dream Designer, Singing, Volleyball, Reading, Arts and Crafts, Maths and Science">
+  <meta name="author" content="Shreya Bahree">
   
-  <!-- Open Graph Meta Tags (for social sharing) -->
-  <meta property="og:title" content="Shoreline — Discover Your Perfect Beach Escape">
-  <meta property="og:description" content="Find the world's most pristine beach destinations. Filter by activities, sand variety, weather, and ratings, or take our interactive Beach Matcher quiz!">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Shreya Bahree — Creative Ocean Portfolio & Keepsakes">
+  <meta property="og:description" content="Explore Shreya's hobbies, skills, and school life. Create your own emotional keepsake bottle!">
   <meta property="og:type" content="website">
   
-  <!-- Stylesheets & Typography -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome Icons (Loaded asynchronously) -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- --- SCROLL PROGRESS BAR --- -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- --- BACKGROUND FLOATING BUBBLES --- -->
+  <div class="bubble-container" id="bubble-container"></div>
 
   <!-- --- HEADER / NAVIGATION --- -->
   <header id="header">
     <div class="container">
-      <a href="#" class="logo" id="brand-logo" aria-label="Shoreline Home">
-        <div class="logo-wave"><i class="fa-solid fa-water"></i></div>
-        <span>Shoreline</span>
+      <a href="#" class="logo" id="brand-logo" aria-label="Shreya Bahree Home">
+        <div class="logo-shell"><i class="fa-solid fa-shuttle-space"></i></div>
+        <span>Shreya.b</span>
       </a>
       
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#destinations" id="nav-destinations">Destinations</a></li>
-          <li><a href="#" onclick="event.preventDefault(); openQuiz();" id="nav-matcher">Mood Matcher</a></li>
-          <li><a href="#" onclick="event.preventDefault(); toggleFavoritesSidebar();" id="nav-checklist">Shortlist Compare</a></li>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#school-life" class="nav-link">School & Sports</a></li>
+          <li><a href="#creative-hub" class="nav-link">Creative Hub</a></li>
+          <li><a href="#keepsake-generator" class="nav-link">Dream Keepsakes</a></li>
+          <li><a href="#cozy-corner" class="nav-link font-accent">Cozy Corner</a></li>
         </ul>
       </nav>
-      
-      <div class="nav-actions">
-        <button class="favorites-btn" id="favorites-btn" aria-label="Open Saved Favorites Sidebar">
-          <i class="fa-solid fa-heart"></i>
-          <span>My Shortlist</span>
-          <span class="favorites-count" id="favorites-count" style="display: none;">0</span>
-        </button>
+
+      <div class="header-badge">
+        <span class="vvs-badge"><i class="fa-solid fa-graduation-cap"></i> Grade 7C</span>
       </div>
     </div>
   </header>
@@ -52,199 +60,618 @@
   <!-- --- MAIN CANVAS --- -->
   <main>
     
-    <!-- --- HERO / CANVAS HEADER --- -->
-    <section class="hero" id="hero-section">
+    <!-- --- HERO / WELCOME SECTION --- -->
+    <section class="hero" id="home">
       <div class="container">
-        <span class="hero-subtitle">Curated Paradise Directory</span>
-        <h1 class="hero-title">Find your perfect patch of <span>paradise</span></h1>
-        <p class="hero-desc">Discover world-class shorelines tailored to your preferred climate, activities, unique sand colors, and traveling companions.</p>
-        
-        <!-- Search & Quick Matcher Console -->
-        <div class="search-filter-wrapper glassmorphism" id="filter-wrapper">
-          <div class="search-bar-inner">
-            <div class="search-input-group">
-              <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" id="search-bar" placeholder="Search by name, location, sand style, or keyword..." aria-label="Search Beaches">
+        <div class="hero-grid">
+          <div class="hero-text-content">
+            <span class="hero-tagline"><i class="fa-solid fa-anchor"></i> Hello & Welcome!</span>
+            <h1 class="hero-title">I'm <span>Shreya Bahree</span></h1>
+            <p class="hero-subtitle">Student at Vasant Valley School • Grade 7C</p>
+            <p class="hero-desc">
+              I love turning dreams and emotions into beautiful keepsakes that people can cherish forever. I’m a passionate designer, singer, sports enthusiast, and lover of maths and science. Dive into my ocean to explore my world!
+            </p>
+            <div class="hero-actions">
+              <a href="#keepsake-generator" class="btn btn-primary"><i class="fa-solid fa-wand-magic-sparkles"></i> Create a Dream Keepsake</a>
+              <a href="#creative-hub" class="btn btn-secondary">Explore Hobbies <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            
-            <button class="quiz-trigger-btn" id="quiz-trigger-btn">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
-              Beach Mood Matcher
-            </button>
           </div>
           
-          <!-- Advanced Multi-Criteria Filter Pill Rows -->
-          <div class="filter-categories">
-            
-            <div class="filter-row">
-              <span class="filter-label">Vibe Vibe</span>
-              <div class="filter-options" id="vibe-filters">
-                <!-- Injected Dynamically by JS -->
-              </div>
+          <div class="hero-visual-wrapper">
+            <div class="avatar-capsule glassmorphism">
+              <!-- Animated SVG Custom Ocean Avatar -->
+              <svg class="ocean-avatar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffd1d1" />
+                    <stop offset="35%" stop-color="#fff6d1" />
+                    <stop offset="70%" stop-color="#d1ffd6" />
+                    <stop offset="100%" stop-color="#dcd1ff" />
+                  </linearGradient>
+                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#a78bfa" />
+                    <stop offset="100%" stop-color="#818cf8" />
+                  </linearGradient>
+                  <clipPath id="avatarClip">
+                    <circle cx="100" cy="100" r="85" />
+                  </clipPath>
+                </defs>
+                <circle cx="100" cy="100" r="92" fill="none" stroke="url(#oceanGrad)" stroke-width="4" stroke-dasharray="10 5" class="dashed-ring"/>
+                <circle cx="100" cy="100" r="85" fill="#fcf5ff" />
+                
+                <!-- Avatar Graphic Content (SVG Girl Illustration) -->
+                <g clip-path="url(#avatarClip)">
+                  <!-- Waves inside background -->
+                  <path d="M 0 140 Q 50 120 100 140 T 200 140 L 200 200 L 0 200 Z" fill="#fce7f3" opacity="0.8" />
+                  <path d="M 0 160 Q 50 150 100 160 T 200 160 L 200 200 L 0 200 Z" fill="#e0f2fe" opacity="0.9" />
+                  
+                  <!-- Hair (Back) -->
+                  <path d="M 50 120 C 50 40 150 40 150 120 C 160 140 160 170 150 180 L 50 180 C 40 170 40 140 50 120 Z" fill="#4a3728"/>
+                  <!-- Neck -->
+                  <rect x="90" y="115" width="20" height="30" rx="10" fill="#fdd1b5" />
+                  <!-- Shoulders & Outfit (Cute lavender sweater) -->
+                  <path d="M 40 180 C 40 145 160 145 160 180 L 160 210 L 40 210 Z" fill="#a78bfa" />
+                  <path d="M 90 145 L 100 155 L 110 145 Z" fill="#fdd1b5" />
+                  <circle cx="100" cy="170" r="10" fill="#f472b6" />
+                  
+                  <!-- Head -->
+                  <circle cx="100" cy="95" r="32" fill="#fdd1b5" />
+                  <!-- Hair (Front/Bangs) -->
+                  <path d="M 68 85 C 68 60 132 60 132 85 C 132 70 68 70 68 85 Z" fill="#302217" />
+                  <path d="M 68 85 C 80 80 90 92 100 85 C 110 92 120 80 132 85 C 132 60 68 60 68 85 Z" fill="#302217" />
+                  <!-- Eyes -->
+                  <circle cx="88" cy="95" r="4.5" fill="#332211" />
+                  <circle cx="112" cy="95" r="4.5" fill="#332211" />
+                  <!-- Cheeks (Blush) -->
+                  <circle cx="82" cy="103" r="6" fill="#f87171" opacity="0.4" />
+                  <circle cx="118" cy="103" r="6" fill="#f87171" opacity="0.4" />
+                  <!-- Smile -->
+                  <path d="M 92 105 Q 100 114 108 105" fill="none" stroke="#e11d48" stroke-width="3" stroke-linecap="round" />
+                  
+                  <!-- Creative elements floating in avatar -->
+                  <g class="floating-art-element">
+                    <!-- Little Star -->
+                    <path d="M 60 70 L 62 74 L 67 74 L 63 77 L 65 82 L 60 79 L 55 82 L 57 77 L 53 74 L 58 74 Z" fill="#fbbf24" />
+                    <!-- Little Music Note -->
+                    <path d="M 135 75 L 135 65 L 145 68 L 145 78 Z" fill="#ec4899" />
+                    <circle cx="132" cy="75" r="3" fill="#ec4899" />
+                    <circle cx="142" cy="78" r="3" fill="#ec4899" />
+                  </g>
+                </g>
+              </svg>
+              
+              <!-- Shreya's floating tagline list -->
+              <div class="floating-badge fb-1"><i class="fa-solid fa-paintbrush"></i> Dream Designer</div>
+              <div class="floating-badge fb-2"><i class="fa-solid fa-music"></i> Singer</div>
+              <div class="floating-badge fb-3"><i class="fa-solid fa-volleyball"></i> Athlete</div>
             </div>
-            
-            <div class="filter-row">
-              <span class="filter-label">Sand Style</span>
-              <div class="filter-options" id="sand-filters">
-                <!-- Injected Dynamically by JS -->
-              </div>
-            </div>
-            
-            <div class="filter-row">
-              <span class="filter-label">Excursions</span>
-              <div class="filter-options" id="activity-filters">
-                <!-- Injected Dynamically by JS -->
-              </div>
-            </div>
-            
           </div>
         </div>
       </div>
+      
+      <!-- Wave Divider -->
+      <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,87.43,26.88,172.88,51,263.3,67.23,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
     </section>
 
-    <!-- --- DYNAMIC DESTINATIONS GRID --- -->
-    <section class="beach-section" id="destinations">
+    <!-- --- SCHOOL & SPORTS SECTION --- -->
+    <section class="school-sports" id="school-life">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">World-Class Shores</h2>
-            <p class="section-desc">Handpicked beaches from tropical lagoons to adventure-packed surfing waves.</p>
-          </div>
-          <div class="results-counter" id="results-counter" aria-live="polite">6 Beaches found</div>
+        <div class="section-heading text-center">
+          <span class="sub-title">My Everyday Adventure</span>
+          <h2>School & Active Sports</h2>
+          <p>Studying at <strong>Vasant Valley School</strong>, I balance science formulas with badminton smashes and track athletics!</p>
         </div>
-        
-        <div class="beaches-grid" id="beaches-grid">
-          <!-- Dynamically Injected Beach Cards -->
+
+        <div class="school-sports-grid">
+          
+          <!-- Vasant Valley Card -->
+          <div class="school-card glassmorphism">
+            <div class="school-header">
+              <div class="school-icon"><i class="fa-solid fa-school"></i></div>
+              <h3>Vasant Valley School</h3>
+              <span class="badge-grade">Grade 7C</span>
+            </div>
+            
+            <div class="school-subjects">
+              <h4>Favorite Subjects</h4>
+              
+              <div class="subject-row">
+                <div class="subject-title">
+                  <span class="subject-emoji">🔬</span>
+                  <div>
+                    <strong>Science</strong>
+                    <p>Exploring how our amazing universe works!</p>
+                  </div>
+                </div>
+                <div class="subject-bar"><div class="subject-bar-fill fill-science"></div></div>
+              </div>
+
+              <div class="subject-row">
+                <div class="subject-title">
+                  <span class="subject-emoji">📐</span>
+                  <div>
+                    <strong>Mathematics</strong>
+                    <p>Solving puzzles, numbers, and logical equations.</p>
+                  </div>
+                </div>
+                <div class="subject-bar"><div class="subject-bar-fill fill-maths"></div></div>
+              </div>
+            </div>
+
+            <!-- Custom mini quote -->
+            <div class="school-quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Learning is an adventure that connects calculations with our natural world!</span>
+            </div>
+          </div>
+
+          <!-- Sports Interactive Collage -->
+          <div class="sports-card glassmorphism">
+            <h3>Active Sports Arena</h3>
+            <p class="sports-intro">Staying energetic keeps my mind creative and sharp! Here are the sports I play and love:</p>
+            
+            <div class="sports-badges-grid">
+              <div class="sport-item-badge hot" data-sport="volleyball">
+                <span class="sport-icon-bullet">🏐</span>
+                <span>Volleyball</span>
+              </div>
+              <div class="sport-item-badge dynamic" data-sport="athletics">
+                <span class="sport-icon-bullet">🏃‍♀️</span>
+                <span>Athletics</span>
+              </div>
+              <div class="sport-item-badge cool" data-sport="swimming">
+                <span class="sport-icon-bullet">🏊‍♀️</span>
+                <span>Swimming</span>
+              </div>
+              <div class="sport-item-badge action" data-sport="badminton">
+                <span class="sport-icon-bullet">🏸</span>
+                <span>Badminton</span>
+              </div>
+              <div class="sport-item-badge field" data-sport="football">
+                <span class="sport-icon-bullet">⚽</span>
+                <span>Football</span>
+              </div>
+              <div class="sport-item-badge hoops" data-sport="basketball">
+                <span class="sport-icon-bullet">🏀</span>
+                <span>Basketball</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Sports Viewer Display -->
+            <div class="sports-viewer" id="sports-viewer">
+              <div class="viewer-placeholder">
+                <i class="fa-solid fa-gamepad sports-bounce-icon"></i>
+                <p>Click on any sport badge above to explore my experience and stats!</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
-    
-  </main>
 
-  <!-- --- SLIDE-OUT DETAIL DRAWER (DESTINATION SHEET) --- -->
-  <div class="detail-drawer-overlay" id="detail-drawer-overlay"></div>
-  <aside class="detail-drawer" id="detail-drawer" aria-label="Beach Details Sheet" aria-hidden="true">
-    <div class="drawer-body" id="drawer-body">
-      <!-- Dynamically Rendered Detailed Specs, custom animated charts & checklist planners -->
-    </div>
-  </aside>
+    <!-- --- THE CREATIVE HUB (DASHBOARD) --- -->
+    <section class="creative-hub" id="creative-hub">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="sub-title">Shreya's Universe</span>
+          <h2>My Creative Dashboard</h2>
+          <p>Switch between the tabs to discover the crafts, melodies, interests, and skills that shape who I am!</p>
+        </div>
 
-  <!-- --- SAVED FAVORITES SHORTLIST PANEL --- -->
-  <div class="fav-sidebar-overlay" id="fav-sidebar-overlay"></div>
-  <aside class="fav-sidebar" id="fav-sidebar" aria-label="Favorites Shortlist Panel" aria-hidden="true">
-    <div class="fav-sidebar-header">
-      <h3 class="fav-sidebar-title">My Travel Shortlist</h3>
-      <button class="fav-sidebar-close" id="fav-sidebar-close" aria-label="Close Shortlist Panel"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    
-    <div class="fav-sidebar-body" id="fav-sidebar-body">
-      <!-- Favorited cards with removal triggers loaded here -->
-    </div>
-    
-    <div class="fav-sidebar-footer">
-      <button class="fav-compare-btn" id="fav-compare-btn" style="display: none;">
-        <i class="fa-solid fa-code-compare"></i>
-        Compare Shortlist
-      </button>
-    </div>
-  </aside>
+        <div class="dashboard-wrapper glassmorphism">
+          <!-- Tab Navigation -->
+          <div class="dashboard-tabs">
+            <button class="tab-btn active" data-tab="hobbies"><i class="fa-solid fa-palette"></i> Hobbies</button>
+            <button class="tab-btn" data-tab="interests"><i class="fa-solid fa-circle-nodes"></i> Interests</button>
+            <button class="tab-btn" data-tab="skills"><i class="fa-solid fa-award"></i> Skills</button>
+          </div>
 
-  <!-- --- SIDE-BY-SIDE COMPARATIVE TABULAR MODAL --- -->
-  <div class="compare-modal-overlay" id="compare-modal-overlay">
-    <div class="compare-modal" role="dialog" aria-modal="true" aria-labelledby="compare-modal-title">
-      <div class="compare-modal-header">
-        <h3 id="compare-modal-title">Shoreline Side-by-Side Comparison</h3>
-        <button class="compare-modal-close" id="compare-modal-close" aria-label="Close Comparison Modal"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      
-      <div class="compare-table-wrapper">
-        <table class="compare-table">
-          <thead id="compare-table-head">
-            <!-- Headers filled dynamically -->
-          </thead>
-          <tbody id="compare-table-body">
-            <!-- Specs filled dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+          <!-- Tab Content Sections -->
+          <div class="dashboard-content" id="dashboard-content">
+            <!-- Dynamically populated or toggled sections in JS/HTML -->
+            
+            <!-- HOBBIES SUBSECTION -->
+            <div class="tab-panel active" id="panel-hobbies">
+              <div class="panel-grid">
+                
+                <div class="panel-card">
+                  <div class="card-icon c-reading"><i class="fa-solid fa-book-open"></i></div>
+                  <h3>Reading Books</h3>
+                  <p>Books are doorways to magic portals and exciting mysteries. I love diving into adventure novels and stories that make me think and relax!</p>
+                  <span class="card-meta">Relax level: 95%</span>
+                </div>
 
-  <!-- --- BEACH MOOD MATCHER INTERACTIVE QUIZ MODAL --- -->
-  <div class="mood-quiz-overlay" id="quiz-overlay">
-    <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="quiz-modal-title">
-      <div class="quiz-header">
-        <h3 id="quiz-modal-title">Beach Mood Matcher</h3>
-        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Let us compute your ideal shoreline slice of heaven.</p>
-        <button class="quiz-close-btn" id="quiz-close-btn" aria-label="Close Quiz"><i class="fa-solid fa-xmark"></i></button>
-        
-        <div class="quiz-progress-bar">
-          <div class="quiz-progress-inner" id="quiz-progress-inner"></div>
+                <div class="panel-card">
+                  <div class="card-icon c-singing"><i class="fa-solid fa-microphone-lines"></i></div>
+                  <h3>Singing Songs</h3>
+                  <p>Singing is how I express my heart. From high pop tracks to serene classical melodies, raising my voice to music brings pure joy to my soul.</p>
+                  <span class="card-meta">Joy level: 100%</span>
+                </div>
+
+                <div class="panel-card">
+                  <div class="card-icon c-crafts"><i class="fa-solid fa-scissors"></i></div>
+                  <h3>Arts & Crafts</h3>
+                  <p>I adore painting, sculpting, and crafting miniature projects with recycled items, paper, and bright colors. It's beautiful to make something from scratch!</p>
+                  <span class="card-meta">Focus level: 90%</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- INTERESTS SUBSECTION -->
+            <div class="tab-panel" id="panel-interests">
+              <div class="panel-grid">
+                
+                <div class="panel-card">
+                  <div class="card-icon c-science"><i class="fa-solid fa-flask"></i></div>
+                  <h3>Exploring Science</h3>
+                  <p>Fascinated by biology, planetary physics, and chemistry experiments. I love knowing the 'why' behind ocean currents and gravity!</p>
+                  <span class="card-meta">Interest: Extreme</span>
+                </div>
+
+                <div class="panel-card">
+                  <div class="card-icon c-maths"><i class="fa-solid fa-calculator"></i></div>
+                  <h3>Intricate Mathematics</h3>
+                  <p>Tackling challenging word problems, equations, and geometry puzzles. Maths is the secret alphabet of nature and design.</p>
+                  <span class="card-meta">Interest: Very High</span>
+                </div>
+
+                <div class="panel-card">
+                  <div class="card-icon c-newsports"><i class="fa-solid fa-volleyball"></i></div>
+                  <h3>New Sport Horizons</h3>
+                  <p>Eager to master new sports disciplines, specifically high volleyball serves and fast track running (athletics) which push my physical limits.</p>
+                  <span class="card-meta">Interest: High Energy</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SKILLS SUBSECTION -->
+            <div class="tab-panel" id="panel-skills">
+              <div class="panel-grid">
+                
+                <div class="panel-card large-card highlight-glow">
+                  <div class="card-icon c-dreamdesigner"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                  <h3>Dream & Emotion Design</h3>
+                  <p>My special power! I listen to people's dreams, capture their subtle emotions, and design artistic concepts that translate their feelings into tangible, beautiful digital and physical treasures they can keep and cherish forever.</p>
+                  <span class="card-badge">Signature Skill</span>
+                </div>
+
+                <div class="panel-card">
+                  <div class="card-icon c-vocal"><i class="fa-solid fa-music"></i></div>
+                  <h3>Vocal & Singing Art</h3>
+                  <p>Excellent pitches, vocal warmth, and memorization of complex compositions, bringing light to school plays and family evenings.</p>
+                  <span class="card-meta">Skill Level: Advanced</span>
+                </div>
+
+                <div class="panel-card">
+                  <div class="card-icon c-logic"><i class="fa-solid fa-square-root-variable"></i></div>
+                  <h3>Maths & Sports Skill</h3>
+                  <p>Analytical numbers solving and extreme speed, stamina, and coordination in badminton, swimming, and football/basketball.</p>
+                  <span class="card-meta">Skill Level: High</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-      
-      <div class="quiz-body" id="quiz-body">
-        <!-- Injected step-by-step quiz pages -->
+    </section>
+
+    <!-- --- THE DREAM & EMOTION KEEPSAKE GENERATOR --- -->
+    <section class="keepsake-generator" id="keepsake-generator">
+      <!-- Wave Divider Top -->
+      <div class="wave-divider-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.87,14.48c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86C263.3,67.23,172.88,51,87.43,26.88,57.05,18.3,26.9,8.75,0,0V120H1200V92.83Z" class="shape-fill"></path>
+        </svg>
       </div>
-    </div>
-  </div>
+
+      <div class="container">
+        <div class="section-heading text-center dark-bg-header">
+          <span class="sub-title theme-light-color">Transform Your Feelings</span>
+          <h2>The Dream & Emotion Keepsake Generator</h2>
+          <p class="theme-light-desc">Let's practice my special skill. Type your current dream, emotion, or secret wish below, pick a theme, and I will craft an ocean-themed keepsake bottle for you to cherish forever!</p>
+        </div>
+
+        <div class="keepsake-wrapper glassmorphism">
+          
+          <!-- Generator Controls -->
+          <div class="generator-controls">
+            <h3>Configure Your Keepsake</h3>
+            <p>Tell me a bit about your dream or how you feel today:</p>
+            
+            <form id="keepsake-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="dream-input"><i class="fa-solid fa-feather-pointed"></i> Describe your dream or feeling:</label>
+                <textarea id="dream-input" placeholder="e.g. I want to fly above the clouds, or I feel happy and warm like a summer afternoon..." max-length="200" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label><i class="fa-solid fa-wand-magic"></i> Choose an Ocean Vibe Theme:</label>
+                <div class="vibe-radio-group">
+                  
+                  <label class="vibe-radio-item active">
+                    <input type="radio" name="keepsake-vibe" value="aurora" checked>
+                    <span class="vibe-box aurora-box">
+                      <span class="vibe-emoji">✨</span>
+                      <strong>Coral Aurora</strong>
+                    </span>
+                  </label>
+
+                  <label class="vibe-radio-item">
+                    <input type="radio" name="keepsake-vibe" value="deepsea">
+                    <span class="vibe-box deepsea-box">
+                      <span class="vibe-emoji">🐙</span>
+                      <strong>Deep Sea Mystery</strong>
+                    </span>
+                  </label>
+
+                  <label class="vibe-radio-item">
+                    <input type="radio" name="keepsake-vibe" value="sunnysand">
+                    <span class="vibe-box sunnysand-box">
+                      <span class="vibe-emoji">🏖️</span>
+                      <strong>Sunny Dunes</strong>
+                    </span>
+                  </label>
+
+                  <label class="vibe-radio-item">
+                    <input type="radio" name="keepsake-vibe" value="starlight">
+                    <span class="vibe-box starlight-box">
+                      <span class="vibe-emoji">⭐</span>
+                      <strong>Starlight Tide</strong>
+                    </span>
+                  </label>
+
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="btn-generate-keepsake">
+                <i class="fa-solid fa-flask-bubble"></i> Cherish My Emotion Forever
+              </button>
+            </form>
+          </div>
+
+          <!-- Generator Display (Preview) -->
+          <div class="generator-preview">
+            <div class="keepsake-display-canvas" id="keepsake-canvas">
+              
+              <!-- Simulated Keepsake Glass Bottle inside CSS -->
+              <div class="keepsake-bottle-container" id="bottle-container">
+                <div class="cork"></div>
+                <div class="neck-ring"></div>
+                <div class="bottle-neck"></div>
+                <div class="bottle-body">
+                  <div class="liquid-wave" id="bottle-liquid"></div>
+                  
+                  <!-- Floating Dream Scroll inside -->
+                  <div class="dream-scroll" id="dream-scroll">
+                    <i class="fa-solid fa-scroll scroll-icon"></i>
+                  </div>
+                  
+                  <!-- Shimmering particles in bottle -->
+                  <div class="bottle-sparkles" id="bottle-sparkles"></div>
+                </div>
+              </div>
+
+              <div class="canvas-instruction" id="canvas-instruction">
+                <p>Configure details on the left, then click "Cherish My Emotion" to capture it here!</p>
+              </div>
+
+              <div class="keepsake-result-card glassmorphism" id="keepsake-result-card" style="display: none;">
+                <h4>Your Captured Keepsake Bottle</h4>
+                <p class="keepsake-text" id="keepsake-quote">"Your dream has been safely sealed with seafoam and starlight."</p>
+                <div class="keepsake-poem" id="keepsake-poem">
+                  <!-- Generated Ocean Poetry based on text -->
+                </div>
+                <div class="keepsake-card-actions">
+                  <button class="btn-mini btn-glow" id="btn-save-keepsake"><i class="fa-solid fa-cloud-arrow-down"></i> Keep in Collection</button>
+                  <button class="btn-mini btn-outline" id="btn-reset-keepsake"><i class="fa-solid fa-arrow-rotate-left"></i> Create New</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Saved Keepsakes Gallery Section -->
+        <div class="saved-gallery-container" id="saved-gallery-section" style="display: none;">
+          <h3><i class="fa-solid fa-heart-circle-check"></i> My Keepsake Collection</h3>
+          <p>These are your captured memories preserved in digital crystals. Hover to read or click to delete.</p>
+          <div class="keepsake-gallery-grid" id="keepsake-gallery-grid">
+            <!-- Dynamically populated keepsakes -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --- THE COZY CORNER SECTION --- -->
+    <section class="cozy-corner" id="cozy-corner">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="sub-title">How I Relax</span>
+          <h2>The Cozy Corner</h2>
+          <p>In my free time or to wind down, I love watching TV, reading books, or chatting with someone. Explore my relaxation activities here!</p>
+        </div>
+
+        <div class="cozy-wrapper">
+          
+          <!-- Interactivity Navigation -->
+          <div class="cozy-nav-pills">
+            <button class="cozy-pill active" data-cozy="tv"><i class="fa-solid fa-tv"></i> Watch TV</button>
+            <button class="cozy-pill" data-cozy="book"><i class="fa-solid fa-book"></i> Read a Book</button>
+            <button class="cozy-pill" data-cozy="chat"><i class="fa-solid fa-comments"></i> Chat & Connect</button>
+          </div>
+
+          <!-- Cozy Main Canvas Area -->
+          <div class="cozy-canvas-wrapper glassmorphism">
+            
+            <!-- TV CONTENT -->
+            <div class="cozy-panel active" id="cozy-panel-tv">
+              <div class="tv-simulator-container">
+                <div class="classic-tv">
+                  <div class="tv-screen-container">
+                    <div class="tv-screen" id="tv-screen">
+                      <!-- Simulated program screen dynamic -->
+                      <div class="tv-program" id="tv-program">
+                        <div class="tv-overlay-grain"></div>
+                        <div class="tv-show-content">
+                          <i class="fa-solid fa-clapperboard show-icon"></i>
+                          <h4>Select a Channel!</h4>
+                          <p>Turn the knobs to see what Shreya watches when relaxing.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tv-controls">
+                    <div class="tv-knob-group">
+                      <div class="knob" id="knob-channel"><div class="knob-indicator"></div></div>
+                      <span class="knob-label">Channels</span>
+                    </div>
+                    <div class="tv-speakers">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="tv-power-btn" id="tv-power">
+                      <div class="power-icon"><i class="fa-solid fa-power-off"></i></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="channel-guide">
+                  <h3>📺 Channel Guide</h3>
+                  <button class="channel-btn" data-channel="cartoons">Channel 1: Fun Cartoons</button>
+                  <button class="channel-btn" data-channel="nature">Channel 2: Ocean Wildlife</button>
+                  <button class="channel-btn" data-channel="science">Channel 3: Cosmic Discoveries</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOOK CONTENT -->
+            <div class="cozy-panel" id="cozy-panel-book">
+              <div class="book-simulator-container">
+                <div class="virtual-book glassmorphism">
+                  <div class="book-page left-page">
+                    <h3>📚 Virtual Bookcase</h3>
+                    <p class="book-intro-text">Reading books is like having keys to secret wardrobes. Here are some genres and quotes I love! Select a book category below:</p>
+                    <div class="book-categories-btns">
+                      <button class="book-cat-btn active" data-book="adventure">Adventure</button>
+                      <button class="book-cat-btn" data-book="mystery">Mystery</button>
+                      <button class="book-cat-btn" data-book="science">Science Fiction</button>
+                    </div>
+                  </div>
+                  <div class="book-divider"></div>
+                  <div class="book-page right-page" id="book-page-right">
+                    <div class="book-content-display">
+                      <h4 id="book-title">Adventure Stories</h4>
+                      <p class="book-quote-text" id="book-quote">"There are no limits to the journeys we can make in our minds. A book is a ship sailing the seas of ink."</p>
+                      <span class="book-author" id="book-author">— Shreya's Reading Corner</span>
+                      <div class="book-decoration-stars">⭐⭐⭐⭐</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHAT CONTENT -->
+            <div class="cozy-panel" id="cozy-panel-chat">
+              <div class="chat-simulator-container">
+                <div class="chat-box glassmorphism">
+                  <div class="chat-header">
+                    <div class="chat-avatar"><i class="fa-solid fa-face-smile-beam"></i></div>
+                    <div class="chat-status">
+                      <strong>Chat with Shreya</strong>
+                      <span><span class="dot-online"></span> Online & relaxing</span>
+                    </div>
+                  </div>
+                  <div class="chat-messages" id="chat-messages">
+                    <div class="msg msg-shreya">
+                      <p>Hey there! Welcome to my cozy corner. Let's chat! What do you like to do to relax in your free time?</p>
+                      <span class="msg-time">Just now</span>
+                    </div>
+                  </div>
+                  <div class="chat-footer">
+                    <div class="chat-options-grid" id="chat-options">
+                      <!-- Multi-choice conversational prompts for user -->
+                      <button class="chat-opt-btn" data-reply="reading">I love reading books too!</button>
+                      <button class="chat-opt-btn" data-reply="sports">I relax by playing sports!</button>
+                      <button class="chat-opt-btn" data-reply="crafts">I enjoy painting and crafting!</button>
+                      <button class="chat-opt-btn" data-reply="joke">Tell me a funny school joke!</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- --- FOOTER --- -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         
-        <div>
+        <div class="footer-brand-col">
           <a href="#" class="logo footer-logo">
-            <div class="logo-wave"><i class="fa-solid fa-water"></i></div>
-            <span>Shoreline</span>
+            <div class="logo-shell"><i class="fa-solid fa-shuttle-space"></i></div>
+            <span>Shreya.b</span>
           </a>
-          <p class="footer-desc">Curating world-class beach experiences, connecting wanderers to their ultimate shoreline microclimates, sands, and aquatic excursions.</p>
+          <p class="footer-desc">Grade 7C student at Vasant Valley School. Capturing feelings, singing songs, solving maths puzzles, and discovering the world's incredible mysteries.</p>
           <div class="footer-socials">
-            <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-            <a href="#" class="footer-social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="footer-social-link" title="Singing Tracks"><i class="fa-solid fa-music"></i></a>
+            <a href="#" class="footer-social-link" title="Arts Projects"><i class="fa-solid fa-palette"></i></a>
+            <a href="#" class="footer-social-link" title="Sports Achievements"><i class="fa-solid fa-medal"></i></a>
+            <a href="#" class="footer-social-link" title="School Life"><i class="fa-solid fa-school"></i></a>
           </div>
         </div>
         
         <div>
-          <h4 class="footer-col-title">Destinations</h4>
+          <h4 class="footer-col-title">Quick Navigation</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('grace-bay')">Grace Bay</a></li>
-            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('anse-source')">Anse Source d'Argent</a></li>
-            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('whitehaven-beach')">Whitehaven Beach</a></li>
-            <li><a href="#" onclick="event.preventDefault(); openDetailDrawer('navagio-beach')">Navagio Beach</a></li>
+            <li><a href="#home">Home Base</a></li>
+            <li><a href="#school-life">School & Sports</a></li>
+            <li><a href="#creative-hub">Creative Dashboard</a></li>
+            <li><a href="#keepsake-generator">Dream Keepsakes</a></li>
+            <li><a href="#cozy-corner">The Cozy Corner</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="footer-col-title">Travel Guides</h4>
+          <h4 class="footer-col-title">School & Core Subjects</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="event.preventDefault(); resetAllFilters(); document.getElementById('destinations').scrollIntoView();">Beach Selector</a></li>
-            <li><a href="#" onclick="event.preventDefault(); openQuiz();">Mood Quiz</a></li>
-            <li><a href="#" onclick="event.preventDefault(); toggleFavoritesSidebar();">Shortlist Comparer</a></li>
-            <li><a href="#">Packing Tips</a></li>
+            <li><a href="#school-life">Vasant Valley School</a></li>
+            <li><a href="#school-life">Maths Discoveries</a></li>
+            <li><a href="#school-life">Science Projects</a></li>
+            <li><a href="#creative-hub">Dream Designs</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="footer-col-title">Coastal Dispatch</h4>
-          <p class="footer-newsletter-text">Subscribe to receive monthly curation of exotic, untouched dunes and local island weather warnings.</p>
-          <form class="footer-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Your coastal dispatch is on its way.'); this.reset();">
-            <input type="email" placeholder="Wanderer's email..." required aria-label="Newsletter Email">
-            <button type="submit" class="footer-submit-btn" id="footer-subscribe-btn">Join</button>
-          </form>
+          <h4 class="footer-col-title">Keep in Touch!</h4>
+          <p class="footer-newsletter-text">Thank you for visiting my digital ocean. Feel free to leave a dream in the generator before you go!</p>
+          <div class="footer-status-pill">
+            <span class="pulse-seafoam"></span> Currently in Grade 7C VVS
+          </div>
         </div>
         
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2026 Shoreline Curation Co. All rights reserved. Crafted for sand-and-sun worshippers.</p>
+        <p>&copy; 2026 Shreya Bahree. Crafted with seafoam, starlight, and dreams. All rights reserved.</p>
         <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
+          <a href="#home">Back to Top</a>
+          <a href="#keepsake-generator">Create Keepsake</a>
         </div>
       </div>
     </div>

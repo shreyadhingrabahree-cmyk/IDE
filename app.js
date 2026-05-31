@@ -1,859 +1,871 @@
-// --- BEACHES DATASET ---
-const BEACHES_DATA = [
-  {
-    id: "grace-bay",
-    name: "Grace Bay",
-    location: "Providenciales, Turks & Caicos",
-    rating: 4.9,
-    vibe: "Luxury",
-    bestTime: "Dec – Apr",
-    temp: 28,
-    weatherLabel: "Sunny & Gentle",
-    sandType: "White Powder",
-    image: "assets/images/grace_bay.png",
-    activities: [
-      { name: "Coral Reef Snorkeling", icon: "🤿" },
-      { name: "Stand-Up Paddleboarding", icon: "🏄" },
-      { name: "Catamaran Sailing", icon: "⛵" },
-      { name: "Sunset Beachfront Dining", icon: "🍽️" },
-      { name: "Glass-Bottom Kayaking", icon: "🛶" }
-    ],
-    wind: "8 km/h",
-    crowdLevel: "Low to Moderate",
-    description: "Grace Bay is legendary for its long stretch of pristine, powdery white sand and incredibly vibrant turquoise water. Protected by a massive coral reef system, the waters here are exceptionally calm and crystal clear, making it a luxurious haven for families, snorkelers, and relaxation seekers alike.",
-    weatherMonths: [26, 27, 27, 28, 29, 30, 31, 31, 30, 29, 28, 27], // Monthly average temps Jan-Dec
-    checklist: [
-      "Reef-safe biodegradable sunscreen (SPF 50+)",
-      "High-clarity snorkel and mask package",
-      "Packable UV sun hat and polarized sunglasses",
-      "Light linen clothing and luxury swimwear",
-      "Waterproof dry bag for boat excursions"
-    ]
-  },
-  {
-    id: "anse-source",
-    name: "Anse Source d'Argent",
-    location: "La Digue Island, Seychelles",
-    rating: 4.8,
-    vibe: "Exotic",
-    bestTime: "May – Sep",
-    temp: 29,
-    weatherLabel: "Warm & Tropical",
-    sandType: "Pink-Golden",
-    image: "assets/images/anse_source.png",
-    activities: [
-      { name: "Seychelles Biking", icon: "🚲" },
-      { name: "Granite Rock Exploring", icon: "🧗" },
-      { name: "Pristine Snorkeling", icon: "🤿" },
-      { name: "Sunset Photography", icon: "📷" },
-      { name: "Tropical Jungle Hiking", icon: "🥾" }
-    ],
-    wind: "14 km/h",
-    crowdLevel: "Moderate",
-    description: "Famed as the most photographed beach in the world, Anse Source d'Argent is renowned for its colossal, uniquely sculpted grey granite boulders scattered across a shoreline of soft, rosy-hued sand. Shallow, calm turquoise waters run inside a protective reef, creating an otherworldly, jungle-backed paradise.",
-    weatherMonths: [28, 28, 29, 30, 29, 28, 27, 27, 28, 29, 29, 28],
-    checklist: [
-      "Sturdy water shoes (for exploring slippery granite rocks)",
-      "Quality waterproof action camera or DSLR protector",
-      "Light insect repellent (for jungle trails)",
-      "Compact micro-fiber quick-dry beach towel",
-      "Cash in Seychelles Rupees (SCR) for local fruit shakes"
-    ]
-  },
-  {
-    id: "banzai-pipeline",
-    name: "Banzai Pipeline",
-    location: "North Shore, Oahu, Hawaii, USA",
-    rating: 4.7,
-    vibe: "Adventure",
-    bestTime: "Nov – Feb",
-    temp: 27,
-    weatherLabel: "Breezy & Surf-swell",
-    sandType: "Golden",
-    image: "assets/images/banzai_pipeline.png",
-    activities: [
-      { name: "Professional Surf Watching", icon: "🏄" },
-      { name: "Beachcombing Trails", icon: "🐚" },
-      { name: "Sunset Horizon Gazing", icon: "🌅" },
-      { name: "Shave Ice Tasting", icon: "🍧" },
-      { name: "Summer Reef Swimming", icon: "🏊" }
-    ],
-    wind: "22 km/h",
-    crowdLevel: "High (Winter) / Low (Summer)",
-    description: "The Banzai Pipeline is the absolute epicentre of professional surfing. During winter, towering, perfectly barreling waves break over a shallow, jagged reef just yards from the shore, providing a jaw-dropping visual spectacle. In the summer months, the ocean transforms completely into a tranquil pool ideal for beachgoers.",
-    weatherMonths: [24, 24, 25, 26, 27, 28, 28, 29, 29, 28, 26, 25],
-    checklist: [
-      "Telephoto zoom lens (essential for capturing surfers from the sand)",
-      "High wind-resistant beach umbrella or canopy",
-      "Surfboard wax (cool water formula for winter months)",
-      "Comfortable sand-walking slide sandals",
-      "Hawaii-safe mineral-only sunscreen"
-    ]
-  },
-  {
-    id: "navagio-beach",
-    name: "Navagio Beach",
-    location: "Zakynthos Island, Greece",
-    rating: 4.6,
-    vibe: "Adventure",
-    bestTime: "Jun – Sep",
-    temp: 31,
-    weatherLabel: "Mediterranean Sun",
-    sandType: "White Pebbles",
-    image: "assets/images/navagio_beach.png",
-    activities: [
-      { name: "Shipwreck Investigating", icon: "⚓" },
-      { name: "Secluded Cave Swimming", icon: "🏊" },
-      { name: "High Cliff Photography", icon: "📷" },
-      { name: "Speedboat Touring", icon: "🚤" },
-      { name: "Sunset Cliffside Walks", icon: "🥾" }
-    ],
-    wind: "11 km/h",
-    crowdLevel: "High",
-    description: "Also known as Shipwreck Cove, Navagio Beach is a spectacular, isolated sandy cove enclosed by sheer white limestone cliffs on Zakynthos Island. The centrepiece is the MV Panagiotis, a rusted smuggler shipwreck resting on pristine white pebbles, surrounded by waters of a surreal, electric neon-blue.",
-    weatherMonths: [14, 14, 16, 19, 23, 27, 31, 31, 28, 24, 19, 16],
-    checklist: [
-      "Sturdy closed-toe shoes (for climbing the cliffside panoramic path)",
-      "Snorkel mask for checking out coastal limestone caves",
-      "Motion sickness bands for the speedboat cruise to the cove",
-      "Insulated thermal water bottle to combat intense summer heat",
-      "Light jacket or windbreaker (the sea breeze can get chilly)"
-    ]
-  },
-  {
-    id: "whitehaven-beach",
-    name: "Whitehaven Beach",
-    location: "Whitsundays, Queensland, Australia",
-    rating: 4.9,
-    vibe: "Eco-Pristine",
-    bestTime: "Sep – Nov",
-    temp: 26,
-    weatherLabel: "Spring Breeze",
-    sandType: "White Silica",
-    image: "assets/images/whitehaven_beach.png",
-    activities: [
-      { name: "Silica Sand Exfoliation", icon: "✨" },
-      { name: "Hill Inlet Lookout Trek", icon: "🥾" },
-      { name: "Scenic Helicopter Ride", icon: "🚁" },
-      { name: "Eco-Friendly Sailing", icon: "⛵" },
-      { name: "Stingray Spotting", icon: "🐟" }
-    ],
-    wind: "16 km/h",
-    crowdLevel: "Low to Moderate",
-    description: "Stretching over 7 kilometres along Whitsunday Island, Whitehaven Beach is globally celebrated for its 98% pure silica sand. The sand is so fine it doesn't retain heat, remaining perfectly cool to walk on even in the blazing midday sun. At the northern end, Hill Inlet forms a mesmerizing swirl of white sands and shifting turquoise tides.",
-    weatherMonths: [28, 28, 27, 25, 23, 21, 21, 22, 24, 25, 27, 28],
-    checklist: [
-      "Camera-friendly polarized sunglasses (essential for white sand glare)",
-      "Stinger suit (mandatory during tropical marine stinger season)",
-      "Light backpack for the Hill Inlet hiking trail",
-      "Eco-safe leave-no-trace travel kit",
-      "Waterproof phone case for wading through shifting sandbars"
-    ]
-  },
-  {
-    id: "pink-sands",
-    name: "Pink Sands Beach",
-    location: "Harbour Island, Bahamas",
-    rating: 4.8,
-    vibe: "Romantic",
-    bestTime: "Dec – Apr",
-    temp: 28,
-    weatherLabel: "Warm Breeze",
-    sandType: "Pink-Golden",
-    image: "assets/images/pink_sands.png",
-    activities: [
-      { name: "Shoreline Horseback Riding", icon: "🐎" },
-      { name: "Out Island Snorkeling", icon: "🤿" },
-      { name: "Pink-Sand Sunbathing", icon: "⛱️" },
-      { name: "Harbour Town Exploring", icon: "🏘️" },
-      { name: "Paddleboard Surfing", icon: "🏄" }
-    ],
-    wind: "12 km/h",
-    crowdLevel: "Low",
-    description: "Stretching along the eastern coast of Harbour Island, Pink Sands Beach features 3 miles of pastel pink sands, tinted by microscopic red coral shelled insects (Foraminifera). The offshore coral reef provides exceptional protection, ensuring gentle waves that are incredibly safe and romantic for relaxing strolls.",
-    weatherMonths: [25, 25, 26, 27, 28, 29, 30, 30, 29, 28, 27, 25],
-    checklist: [
-      "Sturdy sunhat with chin strap (for shoreline horseback riding)",
-      "Pastel cover-up suited for casual Harbour Island dining",
-      "Soft beach blanket (to relax comfortably on the shell sand)",
-      "Polarized water-sports sunglasses",
-      "Water-resistant beach tote bag"
-    ]
-  }
-];
+/* ==========================================================================
+   SHREYA BAHREE — CREATIVE OCEAN PORTFOLIO & KEEPSAKES
+   PREMIUM INTERACTIVE JAVASCRIPT
+   ========================================================================== */
 
-// --- APP STATE MANAGEMENT ---
-let state = {
-  beaches: [...BEACHES_DATA],
-  searchTerm: "",
-  activeVibe: "All",
-  activeSand: "All",
-  activeActivity: "All",
-  favorites: JSON.parse(localStorage.getItem("shoreline_favs")) || [],
-  checklistStates: JSON.parse(localStorage.getItem("shoreline_checklist")) || {}
-};
-
-// --- DOM ELEMENTS ---
-const elements = {
-  header: document.getElementById("header"),
-  searchBar: document.getElementById("search-bar"),
-  beachesGrid: document.getElementById("beaches-grid"),
-  resultsCounter: document.getElementById("results-counter"),
-  
-  // Filter pills
-  vibeFilters: document.getElementById("vibe-filters"),
-  sandFilters: document.getElementById("sand-filters"),
-  activityFilters: document.getElementById("activity-filters"),
-  
-  // Favorites
-  favoritesBtn: document.getElementById("favorites-btn"),
-  favoritesCount: document.getElementById("favorites-count"),
-  favSidebarOverlay: document.getElementById("fav-sidebar-overlay"),
-  favSidebar: document.getElementById("fav-sidebar"),
-  favSidebarClose: document.getElementById("fav-sidebar-close"),
-  favSidebarBody: document.getElementById("fav-sidebar-body"),
-  favCompareBtn: document.getElementById("fav-compare-btn"),
-  
-  // Detail Drawer
-  detailDrawerOverlay: document.getElementById("detail-drawer-overlay"),
-  detailDrawer: document.getElementById("detail-drawer"),
-  drawerCloseBtn: document.getElementById("drawer-close-btn"),
-  drawerBody: document.getElementById("drawer-body"),
-  
-  // Quiz
-  quizTriggerBtn: document.getElementById("quiz-trigger-btn"),
-  quizOverlay: document.getElementById("quiz-overlay"),
-  quizCloseBtn: document.getElementById("quiz-close-btn"),
-  quizProgressBar: document.getElementById("quiz-progress-inner"),
-  quizBody: document.getElementById("quiz-body"),
-  
-  // Comparison Modal
-  compareModalOverlay: document.getElementById("compare-modal-overlay"),
-  compareModalClose: document.getElementById("compare-modal-close"),
-  compareTableBody: document.getElementById("compare-table-body"),
-  compareTableHead: document.getElementById("compare-table-head")
-};
-
-// --- INIT APP ---
 document.addEventListener("DOMContentLoaded", () => {
-  setupScrollListener();
-  renderFilters();
-  applyFilters();
-  setupEventListeners();
-  updateFavoritesUI();
+  // Init all systems
+  initBubbles();
+  initScrollEffects();
+  initSportsViewer();
+  initDashboardTabs();
+  initKeepsakeGenerator();
+  initCozyCorner();
 });
 
-// --- SCROLL EFFECT FOR HEADER ---
-function setupScrollListener() {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
-      elements.header.classList.add("scrolled");
-    } else {
-      elements.header.classList.remove("scrolled");
-    }
-  });
-}
+/* ==========================================================================
+   1. FLOATING OCEAN BUBBLES BACKGROUND
+   ========================================================================== */
+function initBubbles() {
+  const container = document.getElementById("bubble-container");
+  if (!container) return;
 
-// --- SETUP EVENT LISTENERS ---
-function setupEventListeners() {
-  // Real-time Search
-  elements.searchBar.addEventListener("input", (e) => {
-    state.searchTerm = e.target.value.trim().toLowerCase();
-    applyFilters();
-  });
-
-  // Favorites Panel Toggle
-  elements.favoritesBtn.addEventListener("click", toggleFavoritesSidebar);
-  elements.favSidebarOverlay.addEventListener("click", toggleFavoritesSidebar);
-  elements.favSidebarClose.addEventListener("click", toggleFavoritesSidebar);
-
-  // Compare Shortlist Action
-  elements.favCompareBtn.addEventListener("click", openCompareModal);
-  elements.compareModalOverlay.addEventListener("click", (e) => {
-    if (e.target === elements.compareModalOverlay) closeCompareModal();
-  });
-  elements.compareModalClose.addEventListener("click", closeCompareModal);
-
-  // Detail Drawer Closing
-  elements.detailDrawerOverlay.addEventListener("click", closeDetailDrawer);
-  elements.drawerCloseBtn.addEventListener("click", closeDetailDrawer);
-
-  // Quiz Overlay Opening/Closing
-  elements.quizTriggerBtn.addEventListener("click", openQuiz);
-  elements.quizOverlay.addEventListener("click", (e) => {
-    if (e.target === elements.quizOverlay) closeQuiz();
-  });
-  elements.quizCloseBtn.addEventListener("click", closeQuiz);
-}
-
-// --- RENDERING FILTER CONTROL PILLS ---
-function renderFilters() {
-  // Extract Vibes
-  const vibes = ["All", ...new Set(BEACHES_DATA.map(b => b.vibe))];
-  elements.vibeFilters.innerHTML = vibes.map(vibe => `
-    <button class="filter-pill ${state.activeVibe === vibe ? 'active' : ''}" data-vibe="${vibe}">${vibe}</button>
-  `).join("");
-
-  // Extract Sand Types
-  const sands = ["All", ...new Set(BEACHES_DATA.map(b => b.sandType))];
-  elements.sandFilters.innerHTML = sands.map(sand => `
-    <button class="filter-pill ${state.activeSand === sand ? 'active' : ''}" data-sand="${sand}">${sand}</button>
-  `).join("");
-
-  // Curate common Activities
-  const activities = ["All", "Snorkeling", "Surfing", "Swimming", "Exploring", "Dining", "Sailing"];
-  elements.activityFilters.innerHTML = activities.map(act => `
-    <button class="filter-pill ${state.activeActivity === act ? 'active' : ''}" data-act="${act}">${act}</button>
-  `).join("");
-
-  // Bind Event delegation for filter rows
-  elements.vibeFilters.addEventListener("click", (e) => {
-    if (e.target.classList.contains("filter-pill")) {
-      document.querySelectorAll("#vibe-filters .filter-pill").forEach(p => p.classList.remove("active"));
-      e.target.classList.add("active");
-      state.activeVibe = e.target.getAttribute("data-vibe");
-      applyFilters();
-    }
-  });
-
-  elements.sandFilters.addEventListener("click", (e) => {
-    if (e.target.classList.contains("filter-pill")) {
-      document.querySelectorAll("#sand-filters .filter-pill").forEach(p => p.classList.remove("active"));
-      e.target.classList.add("active");
-      state.activeSand = e.target.getAttribute("data-sand");
-      applyFilters();
-    }
-  });
-
-  elements.activityFilters.addEventListener("click", (e) => {
-    if (e.target.classList.contains("filter-pill")) {
-      document.querySelectorAll("#activity-filters .filter-pill").forEach(p => p.classList.remove("active"));
-      e.target.classList.add("active");
-      state.activeActivity = e.target.getAttribute("data-act");
-      applyFilters();
-    }
-  });
-}
-
-// --- APPLY SEARCH AND MULTI-LAYERED FILTERS ---
-function applyFilters() {
-  const filtered = BEACHES_DATA.filter(beach => {
-    // 1. Search Query check
-    const matchesSearch = 
-      beach.name.toLowerCase().includes(state.searchTerm) ||
-      beach.location.toLowerCase().includes(state.searchTerm) ||
-      beach.vibe.toLowerCase().includes(state.searchTerm) ||
-      beach.sandType.toLowerCase().includes(state.searchTerm);
-
-    // 2. Vibe filter check
-    const matchesVibe = state.activeVibe === "All" || beach.vibe === state.activeVibe;
-
-    // 3. Sand type check
-    const matchesSand = state.activeSand === "All" || beach.sandType === state.activeSand;
-
-    // 4. Activity check (fuzzy match against array)
-    const matchesActivity = state.activeActivity === "All" || beach.activities.some(act => 
-      act.name.toLowerCase().includes(state.activeActivity.toLowerCase())
-    );
-
-    return matchesSearch && matchesVibe && matchesSand && matchesActivity;
-  });
-
-  state.beaches = filtered;
-  renderBeachesGrid();
-}
-
-// --- RENDER MAIN BEACH CARDS GRID ---
-function renderBeachesGrid() {
-  elements.resultsCounter.innerText = `${state.beaches.length} ${state.beaches.length === 1 ? 'Beach' : 'Beaches'} found`;
-
-  if (state.beaches.length === 0) {
-    elements.beachesGrid.innerHTML = `
-      <div class="beaches-empty-state">
-        <div class="empty-icon">🏖️</div>
-        <h3 class="empty-title">No Beaches Match Your Search</h3>
-        <p class="empty-desc">We couldn't find any shorelines matching your exact filter setup. Try relaxing your filters or typing something else.</p>
-        <button class="empty-reset-btn" id="empty-reset-btn">Reset All Filters</button>
-      </div>
-    `;
-    
-    document.getElementById("empty-reset-btn").addEventListener("click", resetAllFilters);
-    return;
+  const bubbleCount = 18;
+  for (let i = 0; i < bubbleCount; i++) {
+    createBubble(container, true); // initial positioning
   }
 
-  elements.beachesGrid.innerHTML = state.beaches.map(beach => {
-    const isFav = state.favorites.some(f => f.id === beach.id);
-    return `
-      <article class="beach-card" data-id="${beach.id}">
-        <div class="card-img-wrapper" onclick="openDetailDrawer('${beach.id}')">
-          <img src="${beach.image}" alt="${beach.name}" loading="lazy">
-          <div class="card-img-overlay">
-            <div class="card-top-tags">
-              <span class="vibe-badge">${beach.vibe}</span>
-              <button class="fav-card-btn ${isFav ? 'favorited' : ''}" data-id="${beach.id}" onclick="event.stopPropagation(); toggleFavorite('${beach.id}')">
-                <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
-              </button>
-            </div>
-            
-            <div class="card-bottom-meta">
-              <span class="weather-badge">
-                ☀️ ${beach.temp}°C
-              </span>
-              <span class="rating-badge">
-                ★ ${beach.rating.toFixed(1)}
-              </span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="card-loc"><i class="fa-solid fa-location-dot"></i> ${beach.location}</div>
-          <h3 class="card-title" onclick="openDetailDrawer('${beach.id}')">${beach.name}</h3>
-          
-          <div class="card-info-pills">
-            <span class="info-pill"><i class="fa-solid fa-umbrella-beach"></i> ${beach.sandType} Sand</span>
-            <span class="info-pill"><i class="fa-solid fa-wind"></i> ${beach.wind} Wind</span>
-          </div>
-          
-          <div class="card-footer">
-            <div class="card-best-time">
-              Best Time to Visit
-              <strong>${beach.bestTime}</strong>
-            </div>
-            <button class="card-details-btn" onclick="openDetailDrawer('${beach.id}')">
-              Explore Beach <i class="fa-solid fa-arrow-right-long"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
+  // Continuously spawn bubbles
+  setInterval(() => {
+    createBubble(container, false);
+  }, 2500);
 }
 
-// --- RESET ALL FILTER STATES ---
-function resetAllFilters() {
-  state.searchTerm = "";
-  state.activeVibe = "All";
-  state.activeSand = "All";
-  state.activeActivity = "All";
-  
-  elements.searchBar.value = "";
-  
-  renderFilters();
-  applyFilters();
-}
+function createBubble(container, isInitial) {
+  const bubble = document.createElement("div");
+  bubble.classList.add("bubble");
 
-// --- DYNAMICALLY TOGGLE FAVORITES SHORTLIST ---
-function toggleFavorite(id) {
-  const beach = BEACHES_DATA.find(b => b.id === id);
-  if (!beach) return;
+  const size = Math.random() * 40 + 15; // 15px to 55px
+  const left = Math.random() * 100;    // percentage
+  const duration = Math.random() * 8 + 8; // 8s to 16s
+  const delay = isInitial ? -(Math.random() * duration) : Math.random() * 3;
 
-  const index = state.favorites.findIndex(f => f.id === id);
-  if (index === -1) {
-    // Add to favorites
-    state.favorites.push(beach);
-  } else {
-    // Remove from favorites
-    state.favorites.splice(index, 1);
-  }
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+  bubble.style.left = `${left}%`;
+  bubble.style.animationDuration = `${duration}s`;
+  bubble.style.animationDelay = `${delay}s`;
 
-  // Save State
-  localStorage.setItem("shoreline_favs", JSON.stringify(state.favorites));
-  
-  // Update Interfaces
-  updateFavoritesUI();
-  renderBeachesGrid();
+  container.appendChild(bubble);
 
-  // If Drawer is open, sync drawer fav button status
-  const drawerFavBtn = document.getElementById("drawer-fav-action-btn");
-  if (drawerFavBtn && drawerFavBtn.getAttribute("data-id") === id) {
-    const isFav = index === -1; // Since we just pushed or spliced
-    drawerFavBtn.classList.toggle("favorited", isFav);
-    drawerFavBtn.innerHTML = `<i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>`;
-  }
-}
-
-// --- UPDATE FAVORITES UI STATES ---
-function updateFavoritesUI() {
-  const count = state.favorites.length;
-  elements.favoritesCount.innerText = count;
-  elements.favoritesCount.style.display = count > 0 ? "flex" : "none";
-
-  if (count === 0) {
-    elements.favSidebarBody.innerHTML = `
-      <div class="fav-empty-state">
-        <div class="fav-empty-icon">❤️</div>
-        <p>Your shortlist is empty.</p>
-        <p style="font-size: 13px; margin-top: 6px;">Tap the heart on beach cards to add destinations and compare them.</p>
-      </div>
-    `;
-    elements.favCompareBtn.style.display = "none";
-  } else {
-    elements.favSidebarBody.innerHTML = state.favorites.map(beach => `
-      <div class="fav-item-card">
-        <div class="fav-item-img">
-          <img src="${beach.image}" alt="${beach.name}">
-        </div>
-        
-        <div class="fav-item-details">
-          <h4 class="fav-item-title">${beach.name}</h4>
-          <div class="fav-item-meta">
-            <span>★ ${beach.rating}</span>
-            <span>📍 ${beach.vibe}</span>
-          </div>
-        </div>
-        
-        <button class="fav-item-remove" onclick="toggleFavorite('${beach.id}')">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-    `).join("");
-    
-    // Show Compare button if we have at least 2 beaches to contrast
-    elements.favCompareBtn.style.display = count >= 2 ? "flex" : "none";
-  }
-}
-
-function toggleFavoritesSidebar() {
-  elements.favSidebarOverlay.classList.toggle("open");
-  elements.favSidebar.classList.toggle("open");
-}
-
-// --- OPEN COMPARISON MODAL TABLE ---
-function openCompareModal() {
-  if (state.favorites.length < 2) return;
-
-  // Render Table Head
-  elements.compareTableHead.innerHTML = `
-    <tr>
-      <th>Feature</th>
-      ${state.favorites.map(beach => `<th>${beach.name}</th>`).join("")}
-    </tr>
-  `;
-
-  // Render Compare Rows
-  const features = [
-    { label: "Location", key: "location" },
-    { label: "Rating", key: "rating", format: val => `★ ${val.toFixed(1)}` },
-    { label: "Theme Vibe", key: "vibe" },
-    { label: "Best Time to Go", key: "bestTime" },
-    { label: "Current Temp", key: "temp", format: val => `${val}°C` },
-    { label: "Sand Variety", key: "sandType" },
-    { label: "Wind Velocity", key: "wind" },
-    { label: "Crowds", key: "crowdLevel" }
-  ];
-
-  elements.compareTableBody.innerHTML = features.map(feat => `
-    <tr>
-      <th>${feat.label}</th>
-      ${state.favorites.map(beach => {
-        let val = beach[feat.key];
-        if (feat.format) val = feat.format(val);
-        return `<td>${val}</td>`;
-      }).join("")}
-    </tr>
-  `).join("");
-
-  elements.compareModalOverlay.classList.add("open");
-}
-
-function closeCompareModal() {
-  elements.compareModalOverlay.classList.remove("open");
-}
-
-// --- SLIDE-OUT DETAIL DRAWER (SHEET) MANAGEMENT ---
-function openDetailDrawer(id) {
-  const beach = BEACHES_DATA.find(b => b.id === id);
-  if (!beach) return;
-
-  const isFav = state.favorites.some(f => f.id === beach.id);
-
-  // Compile full content inside Drawer Body
-  elements.drawerBody.innerHTML = `
-    <div class="drawer-header-img" style="margin: 0 -32px;">
-      <img src="${beach.image}" alt="${beach.name}">
-      <div class="drawer-header-overlay">
-        <div class="drawer-top-row">
-          <button class="drawer-close-btn" id="drawer-close-action-btn"><i class="fa-solid fa-xmark"></i></button>
-          <button class="drawer-fav-btn ${isFav ? 'favorited' : ''}" id="drawer-fav-action-btn" data-id="${beach.id}"><i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-    
-    <div class="drawer-title-row">
-      <h2 class="drawer-title">${beach.name}</h2>
-      <div class="drawer-loc"><i class="fa-solid fa-location-dot"></i> ${beach.location}</div>
-    </div>
-    
-    <div class="drawer-meta-badges">
-      <span class="drawer-badge gold"><i class="fa-solid fa-star"></i> Rating: ${beach.rating}</span>
-      <span class="drawer-badge blue"><i class="fa-solid fa-temperature-three-quarters"></i> Temp: ${beach.temp}°C</span>
-      <span class="drawer-badge coral"><i class="fa-solid fa-umbrella-beach"></i> Vibe: ${beach.vibe}</span>
-    </div>
-    
-    <div class="drawer-section">
-      <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0;">${beach.description}</p>
-    </div>
-    
-    <div class="drawer-section">
-      <h4 class="drawer-section-title"><i class="fa-solid fa-swimmer"></i> Signature Activities</h4>
-      <div class="drawer-activities-list">
-        ${beach.activities.map(act => `
-          <div class="drawer-activity-item">
-            <span class="drawer-activity-icon">${act.icon}</span>
-            <span>${act.name}</span>
-          </div>
-        `).join("")}
-      </div>
-    </div>
-    
-    <div class="drawer-section">
-      <h4 class="drawer-section-title"><i class="fa-solid fa-cloud-sun"></i> Seasonal Temp Guide</h4>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Average temperature cycle (Jan to Dec) across seasonal milestones:</p>
-      
-      <div class="weather-chart-container">
-        <div class="weather-chart-bars" id="drawer-chart-bars">
-          <!-- Dynamically Populated Bars -->
-        </div>
-        <div class="weather-stats">
-          <div class="weather-stat-box">
-            <div class="weather-stat-val">${beach.wind}</div>
-            <div class="weather-stat-lbl">Wind Speed</div>
-          </div>
-          <div class="weather-stat-box">
-            <div class="weather-stat-val">${beach.crowdLevel}</div>
-            <div class="weather-stat-lbl">Crowds</div>
-          </div>
-          <div class="weather-stat-box">
-            <div class="weather-stat-val">${beach.bestTime}</div>
-            <div class="weather-stat-lbl">Peak Season</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="drawer-section">
-      <h4 class="drawer-section-title"><i class="fa-solid fa-clipboard-check"></i> Beach Travel Planner</h4>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Curated checklist for this destination. Check off items as you pack!</p>
-      
-      <div class="checklist-container" id="drawer-checklist-container">
-        <!-- Checklist elements -->
-      </div>
-    </div>
-  `;
-
-  // Bind new action buttons inside dynamically created HTML
-  document.getElementById("drawer-close-action-btn").addEventListener("click", closeDetailDrawer);
-  document.getElementById("drawer-fav-action-btn").addEventListener("click", () => toggleFavorite(beach.id));
-
-  // Build the seasonal temperature chart bars
-  const chartBarsContainer = document.getElementById("drawer-chart-bars");
-  const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  
-  chartBarsContainer.innerHTML = beach.weatherMonths.map((mTemp, idx) => {
-    // We assume max possible temp in layout is 35°C to scale percentage
-    const barHeightPct = (mTemp / 35) * 100;
-    return `
-      <div class="chart-column">
-        <div class="chart-bar" style="height: 0%;" id="chart-bar-${idx}">
-          <span class="chart-temp">${mTemp}°</span>
-        </div>
-        <span class="chart-label">${monthLabels[idx]}</span>
-      </div>
-    `;
-  }).join("");
-
-  // Build Checklist Elements
-  const checklistContainer = document.getElementById("drawer-checklist-container");
-  const savedChecks = state.checklistStates[beach.id] || [];
-
-  checklistContainer.innerHTML = beach.checklist.map((itemText, idx) => {
-    const isChecked = savedChecks.includes(idx);
-    return `
-      <div class="checklist-item ${isChecked ? 'checked' : ''}" data-idx="${idx}">
-        <div class="checklist-checkbox">
-          ${isChecked ? '<i class="fa-solid fa-check"></i>' : ''}
-        </div>
-        <span class="checklist-text">${itemText}</span>
-      </div>
-    `;
-  }).join("");
-
-  // Attach checklist handlers
-  checklistContainer.addEventListener("click", (e) => {
-    const item = e.target.closest(".checklist-item");
-    if (!item) return;
-
-    const idx = parseInt(item.getAttribute("data-idx"));
-    let currentChecked = state.checklistStates[beach.id] || [];
-
-    if (currentChecked.includes(idx)) {
-      currentChecked = currentChecked.filter(i => i !== idx);
-      item.classList.remove("checked");
-      item.querySelector(".checklist-checkbox").innerHTML = "";
-    } else {
-      currentChecked.push(idx);
-      item.classList.add("checked");
-      item.querySelector(".checklist-checkbox").innerHTML = '<i class="fa-solid fa-check"></i>';
-    }
-
-    state.checklistStates[beach.id] = currentChecked;
-    localStorage.setItem("shoreline_checklist", JSON.stringify(state.checklistStates));
-  });
-
-  // Display components
-  elements.detailDrawerOverlay.classList.add("open");
-  elements.detailDrawer.classList.add("open");
-  document.body.style.overflow = "hidden"; // Disable background scrolling
-
-  // Micro-animation for chart bar sliding up
+  // Remove bubble after its animation completes
   setTimeout(() => {
-    beach.weatherMonths.forEach((mTemp, idx) => {
-      const barElement = document.getElementById(`chart-bar-${idx}`);
-      if (barElement) {
-        const barHeightPct = (mTemp / 35) * 100;
-        barElement.style.height = `${barHeightPct}%`;
+    bubble.remove();
+  }, (duration + delay) * 1000);
+}
+
+
+/* ==========================================================================
+   2. SCROLL EFFECTS & ACTIVE NAVIGATION
+   ========================================================================== */
+function initScrollEffects() {
+  const progress = document.getElementById("scroll-progress");
+  const header = document.getElementById("header");
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  // Scroll listener
+  window.addEventListener("scroll", () => {
+    // 1. Update progress bar
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    if (progress) progress.style.width = `${scrolled}%`;
+
+    // 2. Scrolled class for header
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+
+    // 3. Highlight current nav link
+    let currentId = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentId = section.getAttribute("id");
       }
     });
-  }, 100);
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${currentId}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
 }
 
-function closeDetailDrawer() {
-  elements.detailDrawerOverlay.classList.remove("open");
-  elements.detailDrawer.classList.remove("open");
-  document.body.style.overflow = "auto";
-}
 
-// --- BEACH MOOD MATCHER QUIZ LOGIC ---
-const QUIZ_STEPS = [
-  {
-    question: "What is your preferred holiday pace?",
-    options: [
-      { text: "Quiet & Serene (Ultimate relaxation on untouched dunes)", score: { "grace-bay": 3, "pink-sands": 3 }, icon: "🧘" },
-      { text: "Active Exploring (Hiking and seeing natural formations)", score: { "anse-source": 3, "whitehaven": 3 }, icon: "🥾" },
-      { text: "Thrilling Adventure (Extreme sports, boat rides, or colossal waves)", score: { "banzai-pipeline": 3, "navagio-beach": 3 }, icon: "🏄" }
-    ]
+/* ==========================================================================
+   3. SPORTS COLLAGE VIEWER
+   ========================================================================== */
+const SPORTS_DB = {
+  volleyball: {
+    title: "🏐 Volleyball",
+    colorClass: "hot",
+    emoji: "🏐",
+    quote: "A fresh favorite sport! I love coordinates, team spirit, and standard spikes.",
+    desc: "Volleyball is my latest passion! Learning to read the ball coordinates, aligning my stance, and spiking with power over the net is extremely thrilling. It sharpens my agility and teaches me deep teamwork.",
+    stats: "Spikes: High-energy • Focus: 98% • Team Spirit: Maximum"
   },
-  {
-    question: "Who are you enjoying the sunshine with?",
-    options: [
-      { text: "Solo Discovery (Finding myself in unique, exotic destinations)", score: { "anse-source": 2, "navagio-beach": 3 }, icon: "🧭" },
-      { text: "Romantic Escape (A dreamy private getaway with my partner)", score: { "pink-sands": 3, "grace-bay": 2 }, icon: "💖" },
-      { text: "Active Family/Friends Trip (Creating memories together)", score: { "whitehaven": 3, "banzai-pipeline": 2, "grace-bay": 2 }, icon: "👨‍👩‍👧‍👦" }
-    ]
+  athletics: {
+    title: "🏃‍♀️ Track Athletics",
+    colorClass: "dynamic",
+    emoji: "👟",
+    quote: "Testing speeds, sprint records, and endurance boundaries.",
+    desc: "Sprinting and track athletics push my speed limits. I love the wind on my face and racing against the stopwatch. It boosts my physical endurance, cardiovascular health, and mental willpower.",
+    stats: "Sprint Speed: Rapid • Endurance: High • Motivation: 100%"
   },
-  {
-    question: "What is your perfect tropical soundscape?",
-    options: [
-      { text: "Soft, gentle ripples lapping shallow, warm reefs", score: { "grace-bay": 3, "pink-sands": 3 }, icon: "🐚" },
-      { text: "Thunderous, massive waves crashing against surf reefs", score: { "banzai-pipeline": 3, "navagio-beach": 2 }, icon: "🌊" },
-      { text: "Quiet coastal breezes rustling exotic, wild tree-lines", score: { "anse-source": 3, "whitehaven": 3 }, icon: "🌴" }
-    ]
-  }
-];
-
-let quizState = {
-  currentStep: 0,
-  scores: {
-    "grace-bay": 0,
-    "anse-source": 0,
-    "banzai-pipeline": 0,
-    "navagio-beach": 0,
-    "whitehaven-beach": 0,
-    "pink-sands": 0
+  swimming: {
+    title: "🏊‍♀️ Swimming strokes",
+    colorClass: "cool",
+    emoji: "🐬",
+    quote: "Feeling weightless and building major cardiovascular strength.",
+    desc: "Gliding through water is my ultimate relaxation and energy booster! I practice freestyle laps and backstrokes to strengthen my muscles and build rhythmic breathing coordinates.",
+    stats: "Breathing Focus: Excellent • Stamina: Great • Laps completed: 20+"
+  },
+  badminton: {
+    title: "🏸 Badminton Court",
+    colorClass: "action",
+    emoji: "⚡",
+    quote: "Flick-of-the-wrist smashes and lightning-fast reflexes.",
+    desc: "Badminton requires razor-sharp focus. I love quick drops, baseline clears, and smash defenses. It helps build incredible hand-eye coordination and rapid leg movements on the court.",
+    stats: "Reflexes: Extreme • Accuracy: High • Smash Speed: Impressive"
+  },
+  football: {
+    title: "⚽ Football Field",
+    colorClass: "field",
+    emoji: "⭐",
+    quote: "Dribbling across grass, passing accuracy, and beautiful goals.",
+    desc: "Nothing beats chasing a football on the pitch! I love coordinate passes, tactical positions, and working with my teammates to break through defenses and score sweet goals.",
+    stats: "Ball Control: Good • Stamina: Very High • Team Play: 95%"
+  },
+  basketball: {
+    title: "🏀 Basketball Hoop",
+    colorClass: "hoops",
+    emoji: "🔥",
+    quote: "Dribbling drills, high jumps, and clean layups.",
+    desc: "Bouncing the ball, performing quick pivots, and shooting perfect arcs into the hoop! Basketball challenges my vertical jump, stamina, and coordinate precision under pressure.",
+    stats: "Shooting Range: Accurate • Coordination: High • Jump Height: Peak"
   }
 };
 
-function openQuiz() {
-  quizState.currentStep = 0;
-  quizState.scores = {
-    "grace-bay": 0,
-    "anse-source": 0,
-    "banzai-pipeline": 0,
-    "navagio-beach": 0,
-    "whitehaven-beach": 0,
-    "pink-sands": 0
-  };
-  
-  elements.quizOverlay.classList.add("open");
-  renderQuizStep();
+function initSportsViewer() {
+  const badges = document.querySelectorAll(".sport-item-badge");
+  const viewer = document.getElementById("sports-viewer");
+  if (!viewer) return;
+
+  badges.forEach(badge => {
+    badge.addEventListener("click", () => {
+      const sportKey = badge.getAttribute("data-sport");
+      const data = SPORTS_DB[sportKey];
+      if (!data) return;
+
+      // Reset active badge class
+      badges.forEach(b => b.classList.remove("active"));
+      badge.classList.add("active");
+
+      // Inject details with fadeIn animations
+      viewer.innerHTML = `
+        <div class="sport-details-view">
+          <div class="sport-details-header">
+            <span style="font-size: 28px;">${data.emoji}</span>
+            <h4>${data.title}</h4>
+          </div>
+          <p style="font-style: italic; color: var(--primary); font-weight: 700; margin-bottom: 8px;">"${data.quote}"</p>
+          <p>${data.desc}</p>
+          <span class="sport-stat-label"><i class="fa-solid fa-gauge-high"></i> ${data.stats}</span>
+        </div>
+      `;
+    });
+  });
 }
 
-function closeQuiz() {
-  elements.quizOverlay.classList.remove("open");
+
+/* ==========================================================================
+   4. CREATIVE DASHBOARD TAB SYSTEM
+   ========================================================================== */
+function initDashboardTabs() {
+  const tabs = document.querySelectorAll(".dashboard-tabs .tab-btn");
+  const content = document.getElementById("dashboard-content");
+  if (!tabs || !content) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const targetPanelId = `panel-${tab.getAttribute("data-tab")}`;
+      
+      // Update active tab buttons
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      // Update active panels
+      const panels = content.querySelectorAll(".tab-panel");
+      panels.forEach(panel => {
+        panel.classList.remove("active");
+        if (panel.getAttribute("id") === targetPanelId) {
+          panel.classList.add("active");
+        }
+      });
+    });
+  });
 }
 
-function renderQuizStep() {
-  const isFinished = quizState.currentStep >= QUIZ_STEPS.length;
-  
-  // Progress Bar update
-  const pct = isFinished ? 100 : ((quizState.currentStep + 1) / QUIZ_STEPS.length) * 100;
-  elements.quizProgressBar.style.width = `${pct}%`;
 
-  if (isFinished) {
-    // Find beach with maximum score
-    let bestBeachId = "grace-bay";
-    let maxScore = -1;
+/* ==========================================================================
+   5. DREAM & EMOTION KEEPSAKE GENERATOR (KEY SKILL)
+   ========================================================================== */
+let savedKeepsakes = JSON.parse(localStorage.getItem("shreya_keepsakes")) || [];
+
+// Beautiful custom poem engine based on dream inputs and styles
+const POEM_DATABASE = {
+  aurora: [
+    "sealed with soft twilight and seafoam light",
+    "Where rosy pink dreams take beautiful flight",
+    "cherished forever in sea breeze so warm",
+    "A shelter of colors far away from the storm."
+  ],
+  deepsea: [
+    "Enclosed in deep waters, silent and blue",
+    "Where starlight whispers secrets to you",
+    "A treasure of quietness, holding your peace",
+    "Where all of your worries and tremors shall cease."
+  ],
+  sunnysand: [
+    "Bathed in gold sand dunes and sunny bright skies",
+    "Where laughter rebounds and joy never dies",
+    "A capsule of courage, of summer and warmth",
+    "To carry you safely whenever you go forth."
+  ],
+  starlight: [
+    "Tethered to stars floating high in the bay",
+    "To guide your emotions when words drift away",
+    "A magical crystal of dreams sweet and clear",
+    "To whisper that beauty is always quite near."
+  ]
+};
+
+function generateKeepsakePoem(vibe, dreamText) {
+  // Extract keywords to make it customized
+  const lowercaseDream = dreamText.toLowerCase();
+  let customizedOpening = "A dream of quiet wonders, precious and sweet";
+  
+  if (lowercaseDream.includes("fly") || lowercaseDream.includes("sky") || lowercaseDream.includes("bird") || lowercaseDream.includes("cloud")) {
+    customizedOpening = "A wish of high heavens, of flying so free";
+  } else if (lowercaseDream.includes("happy") || lowercaseDream.includes("warm") || lowercaseDream.includes("smile") || lowercaseDream.includes("love")) {
+    customizedOpening = "A warm, glowing feeling of laughter and love";
+  } else if (lowercaseDream.includes("sad") || lowercaseDream.includes("tired") || lowercaseDream.includes("cry") || lowercaseDream.includes("scared")) {
+    customizedOpening = "A gentle protector for feelings so deep";
+  } else if (lowercaseDream.includes("sing") || lowercaseDream.includes("music") || lowercaseDream.includes("song")) {
+    customizedOpening = "A song in the ripples, a musical theme";
+  } else if (lowercaseDream.includes("sport") || lowercaseDream.includes("run") || lowercaseDream.includes("win") || lowercaseDream.includes("play")) {
+    customizedOpening = "A surge of great action, energetic and bright";
+  }
+
+  const databaseLines = POEM_DATABASE[vibe] || POEM_DATABASE.aurora;
+  return `"${customizedOpening},\n${databaseLines[0]},\n${databaseLines[1]},\n${databaseLines[2]}."`;
+}
+
+function initKeepsakeGenerator() {
+  const form = document.getElementById("keepsake-form");
+  const dreamInput = document.getElementById("dream-input");
+  const btnGenerate = document.getElementById("btn-generate-keepsake");
+  const instruction = document.getElementById("canvas-instruction");
+  const resultCard = document.getElementById("keepsake-result-card");
+  const bottleContainer = document.getElementById("bottle-container");
+  const bottleLiquid = document.getElementById("bottle-liquid");
+  const bottleSparkles = document.getElementById("bottle-sparkles");
+  
+  const radioLabels = document.querySelectorAll(".vibe-radio-item");
+
+  if (!form) return;
+
+  // Render current gallery if exists
+  renderKeepsakeGallery();
+
+  // Sync radio items styling on click
+  radioLabels.forEach(label => {
+    const input = label.querySelector("input");
+    input.addEventListener("change", () => {
+      radioLabels.forEach(l => l.classList.remove("active"));
+      label.classList.add("active");
+    });
+  });
+
+  // Generate keepsakes
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const dreamVal = dreamInput.value.trim();
+    if (!dreamVal) return;
+
+    const selectedVibe = document.querySelector('input[name="keepsake-vibe"]:checked').value;
     
-    Object.keys(quizState.scores).forEach(id => {
-      if (quizState.scores[id] > maxScore) {
-        maxScore = quizState.scores[id];
-        bestBeachId = id;
+    // 1. Hide instructions
+    instruction.style.display = "none";
+    resultCard.style.display = "none";
+    bottleContainer.classList.remove("floating-animation");
+
+    // Play micro-loading delay
+    btnGenerate.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Sealing Your Dream...`;
+    btnGenerate.disabled = true;
+
+    setTimeout(() => {
+      // Restore button status
+      btnGenerate.innerHTML = `<i class="fa-solid fa-flask-bubble"></i> Cherish My Emotion Forever`;
+      btnGenerate.disabled = false;
+
+      // Configure Bottle colors based on theme
+      let liquidGradient = "";
+      let vibeText = "";
+      if (selectedVibe === "aurora") {
+        liquidGradient = "linear-gradient(180deg, rgba(251, 113, 133, 0.7) 0%, rgba(219, 39, 119, 0.9) 100%)";
+        vibeText = "Coral Aurora Vibe";
+      } else if (selectedVibe === "deepsea") {
+        liquidGradient = "linear-gradient(180deg, rgba(14, 165, 233, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%)";
+        vibeText = "Deep Sea Vibe";
+      } else if (selectedVibe === "sunnysand") {
+        liquidGradient = "linear-gradient(180deg, rgba(253, 224, 71, 0.75) 0%, rgba(217, 119, 6) 100%)";
+        vibeText = "Sunny Dunes Vibe";
+      } else if (selectedVibe === "starlight") {
+        liquidGradient = "linear-gradient(180deg, rgba(168, 85, 247, 0.7) 0%, rgba(30, 27, 75, 0.95) 100%)";
+        vibeText = "Starlight Vibe";
       }
+
+      bottleLiquid.style.background = liquidGradient;
+      
+      // Spawn tiny inner bottle sparkles
+      bottleSparkles.innerHTML = "";
+      for (let s = 0; s < 8; s++) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("b-sparkle");
+        sparkle.style.top = `${Math.random() * 50 + 40}%`;
+        sparkle.style.left = `${Math.random() * 80 + 10}%`;
+        const sSize = Math.random() * 5 + 3;
+        sparkle.style.width = `${sSize}px`;
+        sparkle.style.height = `${sSize}px`;
+        sparkle.style.animationDelay = `${Math.random() * 2}s`;
+        bottleSparkles.appendChild(sparkle);
+      }
+
+      // Generate poem
+      const customizedPoem = generateKeepsakePoem(selectedVibe, dreamVal);
+
+      // Populate display
+      document.getElementById("keepsake-quote").innerText = `"${dreamVal.substring(0, 100)}${dreamVal.length > 100 ? '...' : ''}"`;
+      document.getElementById("keepsake-poem").innerText = customizedPoem;
+
+      // Reveal visual bottle and result card
+      bottleContainer.style.display = "block";
+      bottleContainer.classList.add("floating-animation");
+      resultCard.style.display = "block";
+
+      // Bind Temporary state for "Keeping" this item
+      window.currentPendingKeepsake = {
+        id: Date.now().toString(),
+        dream: dreamVal,
+        vibe: selectedVibe,
+        vibeName: vibeText,
+        poem: customizedPoem,
+        timestamp: new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" })
+      };
+    }, 1500);
+  });
+
+  // Action: Save Keepsake
+  const btnSave = document.getElementById("btn-save-keepsake");
+  if (btnSave) {
+    btnSave.addEventListener("click", () => {
+      if (!window.currentPendingKeepsake) return;
+
+      // Push to collection
+      savedKeepsakes.unshift(window.currentPendingKeepsake);
+      localStorage.setItem("shreya_keepsakes", JSON.stringify(savedKeepsakes));
+
+      // Reset pending
+      window.currentPendingKeepsake = null;
+
+      // Trigger beautiful animation and sync UI
+      btnSave.innerHTML = `<i class="fa-solid fa-circle-check"></i> Sealed in Gallery!`;
+      btnSave.disabled = true;
+
+      setTimeout(() => {
+        btnSave.innerHTML = `<i class="fa-solid fa-cloud-arrow-down"></i> Keep in Collection`;
+        btnSave.disabled = false;
+        resetKeepsakeCanvas();
+        renderKeepsakeGallery();
+      }, 1000);
     });
+  }
 
-    const match = BEACHES_DATA.find(b => b.id === bestBeachId);
+  // Action: Reset/Create new
+  const btnReset = document.getElementById("btn-reset-keepsake");
+  if (btnReset) {
+    btnReset.addEventListener("click", resetKeepsakeCanvas);
+  }
+}
 
-    elements.quizBody.innerHTML = `
-      <div class="quiz-result-slide">
-        <div class="quiz-result-icon">🏝️</div>
-        <div class="quiz-question-num">Your Perfect Beach Match</div>
-        <h3 class="quiz-result-match">${match.name}</h3>
-        <p class="quiz-result-desc">${match.name} matches your speed, crowd preferences, and activities flawlessly! Enjoy its stunning ${match.sandType} shores.</p>
-        <button class="quiz-result-action-btn" id="quiz-result-action-btn">Explore ${match.name} Now</button>
-      </div>
-    `;
+function resetKeepsakeCanvas() {
+  document.getElementById("dream-input").value = "";
+  document.getElementById("canvas-instruction").style.display = "block";
+  document.getElementById("keepsake-result-card").style.display = "none";
+  const bottle = document.getElementById("bottle-container");
+  if (bottle) {
+    bottle.style.display = "none";
+    bottle.classList.remove("floating-animation");
+  }
+  window.currentPendingKeepsake = null;
+}
 
-    document.getElementById("quiz-result-action-btn").addEventListener("click", () => {
-      closeQuiz();
-      openDetailDrawer(match.id);
-    });
+function renderKeepsakeGallery() {
+  const gallerySection = document.getElementById("saved-gallery-section");
+  const grid = document.getElementById("keepsake-gallery-grid");
+  if (!grid || !gallerySection) return;
+
+  if (savedKeepsakes.length === 0) {
+    gallerySection.style.display = "none";
     return;
   }
 
-  const step = QUIZ_STEPS[quizState.currentStep];
-
-  elements.quizBody.innerHTML = `
-    <div class="quiz-question-step active">
-      <div class="quiz-question-num">Question ${quizState.currentStep + 1} of ${QUIZ_STEPS.length}</div>
-      <h3 class="quiz-question-text">${step.question}</h3>
-      <div class="quiz-answers-grid">
-        ${step.options.map((opt, idx) => `
-          <button class="quiz-answer-opt" data-idx="${idx}">
-            <div class="quiz-opt-icon">${opt.icon}</div>
-            <span>${opt.text}</span>
-          </button>
-        `).join("")}
+  gallerySection.style.display = "block";
+  grid.innerHTML = savedKeepsakes.map(item => `
+    <div class="saved-keepsake-item glassmorphism" onclick="viewSavedKeepsake('${item.id}')">
+      <button class="delete-thumb-btn" onclick="event.stopPropagation(); deleteKeepsake('${item.id}')" title="Discard Keepsake">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      
+      <div class="saved-bottle-thumb">
+        <div class="s-cork"></div>
+        <div class="s-neck"></div>
+        <div class="s-body">
+          <div class="s-liquid liquid-${item.vibe}"></div>
+        </div>
       </div>
+      
+      <h4>${item.dream.substring(0, 16)}${item.dream.length > 16 ? '...' : ''}</h4>
+      <span>${item.timestamp} • ${item.vibeName}</span>
     </div>
-  `;
+  `).join("");
+}
 
-  // Attach option click handlers
-  document.querySelectorAll(".quiz-answer-opt").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const idx = parseInt(btn.getAttribute("data-idx"));
-      const option = step.options[idx];
+// Global scope helper handlers for click interactions inside grid template injection
+window.deleteKeepsake = function(id) {
+  savedKeepsakes = savedKeepsakes.filter(item => item.id !== id);
+  localStorage.setItem("shreya_keepsakes", JSON.stringify(savedKeepsakes));
+  renderKeepsakeGallery();
+};
 
-      // Add scores
-      Object.keys(option.score).forEach(beachId => {
-        if (quizState.scores[beachId] !== undefined) {
-          quizState.scores[beachId] += option.score[beachId];
+window.viewSavedKeepsake = function(id) {
+  const item = savedKeepsakes.find(item => item.id === id);
+  if (!item) return;
+
+  // Temporarily display this saved item on canvas
+  const instruction = document.getElementById("canvas-instruction");
+  const resultCard = document.getElementById("keepsake-result-card");
+  const bottleContainer = document.getElementById("bottle-container");
+  const bottleLiquid = document.getElementById("bottle-liquid");
+  
+  if (!instruction || !resultCard) return;
+
+  instruction.style.display = "none";
+  
+  // Set theme color
+  let liquidColor = "";
+  if (item.vibe === "aurora") liquidColor = "linear-gradient(180deg, rgba(251, 113, 133, 0.7) 0%, rgba(219, 39, 119, 0.9) 100%)";
+  else if (item.vibe === "deepsea") liquidColor = "linear-gradient(180deg, rgba(14, 165, 233, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%)";
+  else if (item.vibe === "sunnysand") liquidColor = "linear-gradient(180deg, rgba(253, 224, 71, 0.75) 0%, rgba(217, 119, 6) 100%)";
+  else if (item.vibe === "starlight") liquidColor = "linear-gradient(180deg, rgba(168, 85, 247, 0.7) 0%, rgba(30, 27, 75, 0.95) 100%)";
+
+  bottleLiquid.style.background = liquidColor;
+  bottleContainer.style.display = "block";
+  bottleContainer.classList.add("floating-animation");
+
+  document.getElementById("keepsake-quote").innerText = `"${item.dream}"`;
+  document.getElementById("keepsake-poem").innerText = item.poem;
+  resultCard.style.display = "block";
+
+  // Hide the "Save/Keep" action since it's already saved, but show close
+  const btnSave = document.getElementById("btn-save-keepsake");
+  if (btnSave) btnSave.style.display = "none";
+
+  // Modify create new button to act as a close viewer
+  const btnReset = document.getElementById("btn-reset-keepsake");
+  if (btnReset) {
+    btnReset.innerHTML = `<i class="fa-solid fa-xmark"></i> Close Keepsake`;
+    const tempHandler = () => {
+      btnSave.style.display = "inline-flex";
+      btnReset.innerHTML = `<i class="fa-solid fa-arrow-rotate-left"></i> Create New`;
+      btnReset.removeEventListener("click", tempHandler);
+      resetKeepsakeCanvas();
+    };
+    btnReset.addEventListener("click", tempHandler);
+  }
+
+  // Scroll smoothly to generator canvas
+  document.getElementById("keepsake-generator").scrollIntoView();
+};
+
+
+/* ==========================================================================
+   6. THE COZY CORNER WIDGETS
+   ========================================================================== */
+const COZY_BOOKS = {
+  adventure: {
+    title: "Adventure Chronicles",
+    quote: "A single book can take you on journeys deeper than the deepest oceans. I love stories of courage, uncharted islands, and mysterious maps!",
+    author: "— Recommended: Percy Jackson / Enid Blyton"
+  },
+  mystery: {
+    title: "Mystery & Puzzles",
+    quote: "Unraveling clues, decoding locks, and finding secret rooms. Mystery books sharpen my logical coordinates and keep me guessing until the final page!",
+    author: "— Recommended: Nancy Drew / Sherlock Holmes"
+  },
+  science: {
+    title: "Space & Science Fiction",
+    quote: "Fascinating voyages to alien planets, black holes, and timetravel machinery. Reading sci-fi makes me dream of tomorrow's breakthroughs!",
+    author: "— Recommended: A Wrinkle in Time"
+  }
+};
+
+function initCozyCorner() {
+  const pills = document.querySelectorAll(".cozy-pill");
+  const panels = document.querySelectorAll(".cozy-panel");
+
+  // Cozy Tabs Switch
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const type = pill.getAttribute("data-cozy");
+      pills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      panels.forEach(panel => {
+        panel.classList.remove("active");
+        if (panel.getAttribute("id") === `cozy-panel-${type}`) {
+          panel.classList.add("active");
         }
       });
-
-      // Advance
-      quizState.currentStep++;
-      renderQuizStep();
     });
   });
+
+  // --- SUB-WIDGET 1: CLASSIC TV SIMULATOR ---
+  const tvScreen = document.getElementById("tv-screen");
+  const powerBtn = document.getElementById("tv-power");
+  const knob = document.getElementById("knob-channel");
+  const channelBtns = document.querySelectorAll(".channel-btn");
+  
+  let isTvOn = false;
+  let currentKnobRotation = 0;
+
+  function setTvPower(on) {
+    isTvOn = on;
+    if (on) {
+      powerBtn.classList.add("active");
+      tvScreen.classList.remove("off");
+      loadChannel("cartoons"); // default channel 1
+    } else {
+      powerBtn.classList.remove("active");
+      tvScreen.classList.add("off");
+      channelBtns.forEach(b => b.classList.remove("active"));
+      tvScreen.innerHTML = `
+        <div class="tv-program">
+          <div class="tv-overlay-grain"></div>
+          <div class="tv-show-content" style="color: rgba(255,255,255,0.3)">
+            <i class="fa-solid fa-power-off" style="font-size: 40px; color: rgba(255,255,255,0.15); margin-bottom: 8px;"></i>
+            <h4>TV is OFF</h4>
+            <p>Press the red power button or select a channel to turn on!</p>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Knob Rotation transition effect
+  function rotateKnob() {
+    currentKnobRotation += 45;
+    knob.style.transform = `rotate(${currentKnobRotation}deg)`;
+  }
+
+  function loadChannel(channelKey) {
+    if (!isTvOn) {
+      setTvPower(true);
+    }
+    
+    rotateKnob();
+    channelBtns.forEach(btn => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-channel") === channelKey) {
+        btn.classList.add("active");
+      }
+    });
+
+    let displayHtml = "";
+    if (channelKey === "cartoons") {
+      displayHtml = `
+        <div class="sim-cartoon-screen">
+          <div class="tv-overlay-grain"></div>
+          <div class="sim-cartoon-tv">🐱🐹</div>
+          <span class="sim-screen-title"><i class="fa-solid fa-circle-play"></i> Channel 1: Nostalgic Cartoons</span>
+          <p style="font-size: 11px; color: #1e293b; margin-top: 5px;">Animated comedy matches, pure relaxation!</p>
+        </div>
+      `;
+    } else if (channelKey === "nature") {
+      displayHtml = `
+        <div class="sim-cartoon-screen" style="background: linear-gradient(180deg, #0d9488 0%, #115e59 100%);">
+          <div class="tv-overlay-grain"></div>
+          <div class="sim-cartoon-tv" style="animation-duration: 4s;">🐠🐋🐳</div>
+          <span class="sim-screen-title" style="background: rgba(255,255,255,0.15)"><i class="fa-solid fa-fish"></i> Channel 2: Ocean Wonders</span>
+          <p style="font-size: 11px; color: #ccfbf1; margin-top: 5px;">Drifting reefs and marine coral ecosystems.</p>
+        </div>
+      `;
+    } else if (channelKey === "science") {
+      displayHtml = `
+        <div class="sim-cartoon-screen" style="background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%);">
+          <div class="tv-overlay-grain"></div>
+          <div class="sim-cartoon-tv">🚀🪐🛸</div>
+          <span class="sim-screen-title" style="background: rgba(255,255,255,0.1)"><i class="fa-solid fa-satellite"></i> Channel 3: Space Voyager</span>
+          <p style="font-size: 11px; color: #e0e7ff; margin-top: 5px;">Discovering stars and planetary coordinates.</p>
+        </div>
+      `;
+    }
+
+    tvScreen.innerHTML = displayHtml;
+  }
+
+  // Bind TV events
+  powerBtn.addEventListener("click", () => setTvPower(!isTvOn));
+  knob.addEventListener("click", () => {
+    if (!isTvOn) return;
+    const currentActive = document.querySelector(".channel-btn.active");
+    if (currentActive) {
+      const currentCh = currentActive.getAttribute("data-channel");
+      if (currentCh === "cartoons") loadChannel("nature");
+      else if (currentCh === "nature") loadChannel("science");
+      else loadChannel("cartoons");
+    }
+  });
+
+  channelBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      loadChannel(btn.getAttribute("data-channel"));
+    });
+  });
+
+  // Start with TV off simulated
+  setTvPower(false);
+
+
+  // --- SUB-WIDGET 2: VIRTUAL FLIPBOOK ---
+  const bookBtns = document.querySelectorAll(".book-cat-btn");
+  const bookPageRight = document.getElementById("book-page-right");
+
+  bookBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const type = btn.getAttribute("data-book");
+      const data = COZY_BOOKS[type];
+      if (!data || !bookPageRight) return;
+
+      // Update active btn styling
+      bookBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Animate flip effect
+      bookPageRight.style.opacity = "0";
+      bookPageRight.style.transform = "rotateY(-10deg) translateX(5px)";
+
+      setTimeout(() => {
+        bookPageRight.innerHTML = `
+          <div class="book-content-display">
+            <h4 id="book-title" style="animation: fadeIn 0.3s;">${data.title}</h4>
+            <p class="book-quote-text" id="book-quote">"${data.quote}"</p>
+            <span class="book-author" id="book-author">${data.author}</span>
+            <div class="book-decoration-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        `;
+        bookPageRight.style.opacity = "1";
+        bookPageRight.style.transform = "rotateY(0deg) translateX(0)";
+      }, 300);
+    });
+  });
+
+
+  // --- SUB-WIDGET 3: CHAT SIMULATOR WITH SHREYA ---
+  const chatMessages = document.getElementById("chat-messages");
+  const chatOptions = document.getElementById("chat-options");
+  if (!chatMessages || !chatOptions) return;
+
+  const RESPONSE_TREE = {
+    reading: {
+      userText: "I love reading books too!",
+      shreyaReplies: [
+        "Yay! High five! Books are like pocket-sized teleportation machines 🚀.",
+        "Currently I'm reading some great mystery and sci-fi papers. What's your absolute favorite book to read?"
+      ],
+      nextPrompts: [
+        { text: "I love fantasy and magic!", key: "fantasy" },
+        { text: "I prefer realistic science stories!", key: "realscience" }
+      ]
+    },
+    sports: {
+      userText: "I relax by playing sports!",
+      shreyaReplies: [
+        "Oh, sports are so great! It feels awesome to run around volleyball courts or slam a shuttlecock 🏸.",
+        "It coordinates both your brain and your muscles! Which sports keep you energetic?"
+      ],
+      nextPrompts: [
+        { text: "Volleyball & basketball!", key: "ballsports" },
+        { text: "Swimming & badminton!", key: "fastsports" }
+      ]
+    },
+    crafts: {
+      userText: "I enjoy painting and crafting!",
+      shreyaReplies: [
+        "Crafting is magical! I love taking scrap papers, clay, and teals, and turning them into miniature objects 🎨.",
+        "It represents exactly what I love doing: capturing feelings and shaping them into physical keepsakes!"
+      ],
+      nextPrompts: [
+        { text: "Can you design a keepsake for me?", key: "askkeepsake" },
+        { text: "What materials do you use to paint?", key: "paintmaterials" }
+      ]
+    },
+    joke: {
+      userText: "Tell me a funny school joke!",
+      shreyaReplies: [
+        "Haha, okay! Here is one: Why did the student take a ladder to Vasant Valley School?",
+        "Because she wanted to go to High School! 🪜😄.",
+        "Maths puns are great too. Why was the maths book so sad? Because it had too many problems!"
+      ],
+      nextPrompts: [
+        { text: "Haha! Tell me another joke!", key: "joke" },
+        { text: "Let's talk about books again!", key: "reading" }
+      ]
+    },
+    // Leaf Responses
+    fantasy: {
+      userText: "I love fantasy and magic!",
+      shreyaReplies: [
+        "Magical realms are the best! Spell books, dragons, and starry skies are so fun to dream about.",
+        "If you want, go try the Aurora Vibe on my Keepsake Generator above to seal your magical dream!"
+      ],
+      nextPrompts: [
+        { text: "Let's chat about sports!", key: "sports" },
+        { text: "Tell me another school joke!", key: "joke" }
+      ]
+    },
+    realscience: {
+      userText: "I prefer realistic science stories!",
+      shreyaReplies: [
+        "Science details are incredible! Understanding stars, deep-ocean trenches, and equations makes real life feel like magic itself."
+      ],
+      nextPrompts: [
+        { text: "Let's talk about painting!", key: "crafts" },
+        { text: "Tell me another school joke!", key: "joke" }
+      ]
+    },
+    ballsports: {
+      userText: "Volleyball & basketball!",
+      shreyaReplies: [
+        "Awesome choices! High jumps, coordinate dribbles, and spikes are so satisfying. Keep active! 🏀🏐"
+      ],
+      nextPrompts: [
+        { text: "Tell me a funny joke!", key: "joke" },
+        { text: "Talk about book categories!", key: "reading" }
+      ]
+    },
+    fastsports: {
+      userText: "Swimming & badminton!",
+      shreyaReplies: [
+        "Perfect! Swimming laps coordinates breathing, and badminton keeps reflexes super rapid. Splendid choices!"
+      ],
+      nextPrompts: [
+        { text: "Can we talk about arts & crafts?", key: "crafts" },
+        { text: "Tell me a funny joke!", key: "joke" }
+      ]
+    },
+    askkeepsake: {
+      userText: "Can you design a keepsake for me?",
+      shreyaReplies: [
+        "I would LOVE to! Scroll right up to the Keepsake Generator section, type in your dream, and I'll craft a custom seal for you instantly! ✨"
+      ],
+      nextPrompts: [
+        { text: "Tell me a funny joke!", key: "joke" },
+        { text: "Let's talk about books!", key: "reading" }
+      ]
+    },
+    paintmaterials: {
+      userText: "What materials do you use to paint?",
+      shreyaReplies: [
+        "I love vibrant acrylics, soft water-colors, and ocean-colored fine-liners. Painting sea corals and stars is my favorite!"
+      ],
+      nextPrompts: [
+        { text: "Let's talk about books!", key: "reading" },
+        { text: "Tell me a school joke!", key: "joke" }
+      ]
+    }
+  };
+
+  // Option Click Handler
+  chatOptions.addEventListener("click", (e) => {
+    const btn = e.target.closest(".chat-opt-btn");
+    if (!btn) return;
+
+    const replyKey = btn.getAttribute("data-reply");
+    const data = RESPONSE_TREE[replyKey];
+    if (!data) return;
+
+    // 1. Post User message
+    appendMessage(data.userText, "user");
+
+    // Disable options grid during typing simulation
+    chatOptions.innerHTML = "";
+
+    // 2. Typing animation simulation
+    const typingBubble = document.createElement("div");
+    typingBubble.classList.add("msg", "msg-shreya");
+    typingBubble.innerHTML = `
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+    `;
+    chatMessages.appendChild(typingBubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // 3. Shreya replies sequentially
+    setTimeout(() => {
+      typingBubble.remove();
+      postSequentialReplies(data.shreyaReplies, data.nextPrompts);
+    }, 1200);
+  });
+
+  function appendMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.classList.add("msg", `msg-${sender}`);
+    msg.innerHTML = `
+      <p>${text}</p>
+      <span class="msg-time">Just now</span>
+    `;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function postSequentialReplies(replies, nextPrompts, index = 0) {
+    if (index >= replies.length) {
+      // Re-enable options in grid
+      chatOptions.innerHTML = nextPrompts.map(p => `
+        <button class="chat-opt-btn" data-reply="${p.key}">${p.text}</button>
+      `).join("");
+      return;
+    }
+
+    appendMessage(replies[index], "shreya");
+
+    // Schedule next sentence if multi-line reply
+    setTimeout(() => {
+      postSequentialReplies(replies, nextPrompts, index + 1);
+    }, 1400);
+  }
 }
